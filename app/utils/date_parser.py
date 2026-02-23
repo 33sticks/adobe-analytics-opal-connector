@@ -94,8 +94,8 @@ def _parse_to_dates(date_range: str) -> tuple[date, date]:
             start = today - timedelta(days=n)
             return (start, end)
 
-    # 2. last week, this week
-    if s == "last week":
+    # 2. last week, prior week, previous week, this week
+    if s in ("last week", "prior week", "previous week"):
         # Monday of prior week through Sunday of prior week
         # today.weekday() -> Monday=0, Sunday=6
         days_since_monday = today.weekday()
@@ -109,8 +109,8 @@ def _parse_to_dates(date_range: str) -> tuple[date, date]:
         this_monday = today - timedelta(days=days_since_monday)
         return (this_monday, today - timedelta(days=1))
 
-    # 3. last month, this month
-    if s == "last month":
+    # 3. last month, prior month, previous month, this month
+    if s in ("last month", "prior month", "previous month"):
         first_of_this_month = today.replace(day=1)
         last_of_last_month = first_of_this_month - timedelta(days=1)
         first_of_last_month = last_of_last_month.replace(day=1)
@@ -150,6 +150,10 @@ def _parse_to_dates(date_range: str) -> tuple[date, date]:
             _, last_day = calendar.monthrange(year, month_num)
             end_d = date(year, month_num, last_day)
             return (start_d, end_d)
+
+    # 7. prior period, previous period -> default (compare tool will auto-calculate if same as current)
+    if s in ("prior period", "previous period"):
+        return default_range()
 
     return default_range()
 

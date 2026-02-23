@@ -70,6 +70,14 @@ class TestParseDateRange:
         # Mon Feb 9 - Sun Feb 15, end exclusive = Feb 16 00:00
         assert result == "2026-02-09T00:00:00.000/2026-02-16T00:00:00.000"
 
+    def test_prior_week_same_as_last_week(self):
+        result = parse_date_range("prior week")
+        assert result == "2026-02-09T00:00:00.000/2026-02-16T00:00:00.000"
+
+    def test_previous_week_same_as_last_week(self):
+        result = parse_date_range("previous week")
+        assert result == "2026-02-09T00:00:00.000/2026-02-16T00:00:00.000"
+
     def test_this_week(self):
         result = parse_date_range("this week")
         # Mon Feb 16 - Sat Feb 21 (yesterday), end exclusive = Feb 22 00:00
@@ -77,6 +85,14 @@ class TestParseDateRange:
 
     def test_last_month(self):
         result = parse_date_range("last month")
+        assert result == "2026-01-01T00:00:00.000/2026-02-01T00:00:00.000"
+
+    def test_prior_month_same_as_last_month(self):
+        result = parse_date_range("prior month")
+        assert result == "2026-01-01T00:00:00.000/2026-02-01T00:00:00.000"
+
+    def test_previous_month_same_as_last_month(self):
+        result = parse_date_range("previous month")
         assert result == "2026-01-01T00:00:00.000/2026-02-01T00:00:00.000"
 
     def test_this_month(self):
@@ -114,6 +130,14 @@ class TestParseDateRange:
     def test_month_name_abbrev(self):
         result = parse_date_range("Jan 2025")
         assert result == "2025-01-01T00:00:00.000/2025-02-01T00:00:00.000"
+
+    def test_prior_period_default_fallback(self):
+        result = parse_date_range("prior period")
+        assert result == "2026-02-15T00:00:00.000/2026-02-22T00:00:00.000"
+
+    def test_previous_period_default_fallback(self):
+        result = parse_date_range("previous period")
+        assert result == "2026-02-15T00:00:00.000/2026-02-22T00:00:00.000"
 
     def test_default_fallback_unrecognized(self):
         result = parse_date_range("garbage input")

@@ -73,6 +73,15 @@ async def page_comparison(body: dict) -> dict:
         adobe_current_range = parse_date_range(current_period)
         current_display = format_date_range_display(current_period)
 
+        # Safety: if prior resolved to same range as current, fall back to auto-calculation
+        if adobe_current_range == adobe_prior_range:
+            adobe_prior_range = calculate_prior_period(current_period)
+            start, end = get_date_bounds(current_period)
+            duration = (end - start).days + 1
+            prior_end = start - timedelta(days=1)
+            prior_start = prior_end - timedelta(days=duration - 1)
+            prior_display = format_date_bounds_display(prior_start, prior_end)
+
         resolved_metric = resolve_metric(params["metric"])
         metric_display = METRIC_DISPLAY.get(resolved_metric, resolved_metric)
 
