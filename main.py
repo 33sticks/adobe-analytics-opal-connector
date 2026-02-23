@@ -48,5 +48,4 @@ async def health_check() -> dict:
 @app.get("/discovery")
 async def discovery() -> dict:
     """Opal tool manifest — called when registering or syncing the tool."""
-    settings = get_settings()
-    return get_manifest(settings.base_url)
+    return get_manifest()

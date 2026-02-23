@@ -1,22 +1,17 @@
 """Opal tool manifest for Adobe Analytics connector."""
 
 
-def get_manifest(base_url: str) -> dict:
+def get_manifest() -> dict:
     """Return the full tool manifest for Opal discovery.
 
     Opal calls GET /discovery when registering or syncing the tool.
-    The manifest describes all available tools, their parameters, and invocation URLs.
-
-    Args:
-        base_url: The deployed service URL (e.g. https://your-app.up.railway.app).
+    The manifest describes all available tools, their parameters, and invocation paths.
 
     Returns:
-        Manifest dict with schema_version and tools array.
+        Manifest dict with functions array.
     """
-    base_url = base_url.rstrip("/")
     return {
-        "schema_version": "v1",
-        "tools": [
+        "functions": [
             {
                 "name": "adobe_analytics_traffic",
                 "description": "Retrieves page-level traffic data from Adobe Analytics. Use this when users ask about page views, top pages, traffic trends, or website performance over a time period. Available metrics: pageviews, occurrences. Can filter by page name and limit results to top N pages.",
@@ -46,11 +41,9 @@ def get_manifest(base_url: str) -> dict:
                         "required": False,
                     },
                 ],
-                "invocation": {
-                    "url": f"{base_url}/tools/traffic",
-                    "method": "POST",
-                    "headers": {"Content-Type": "application/json"},
-                },
+                "endpoint": "/tools/traffic",
+                "http_method": "POST",
+                "auth_requirements": [],
             },
             {
                 "name": "adobe_analytics_referrers",
@@ -69,11 +62,9 @@ def get_manifest(base_url: str) -> dict:
                         "required": False,
                     },
                 ],
-                "invocation": {
-                    "url": f"{base_url}/tools/referrers",
-                    "method": "POST",
-                    "headers": {"Content-Type": "application/json"},
-                },
+                "endpoint": "/tools/referrers",
+                "http_method": "POST",
+                "auth_requirements": [],
             },
             {
                 "name": "adobe_analytics_page_comparison",
@@ -104,11 +95,9 @@ def get_manifest(base_url: str) -> dict:
                         "required": False,
                     },
                 ],
-                "invocation": {
-                    "url": f"{base_url}/tools/compare",
-                    "method": "POST",
-                    "headers": {"Content-Type": "application/json"},
-                },
+                "endpoint": "/tools/compare",
+                "http_method": "POST",
+                "auth_requirements": [],
             },
             {
                 "name": "adobe_analytics_segments",
@@ -145,11 +134,9 @@ def get_manifest(base_url: str) -> dict:
                         "required": False,
                     },
                 ],
-                "invocation": {
-                    "url": f"{base_url}/tools/segments",
-                    "method": "POST",
-                    "headers": {"Content-Type": "application/json"},
-                },
+                "endpoint": "/tools/segments",
+                "http_method": "POST",
+                "auth_requirements": [],
             },
             {
                 "name": "adobe_analytics_traffic_validation",
@@ -180,11 +167,9 @@ def get_manifest(base_url: str) -> dict:
                         "required": False,
                     },
                 ],
-                "invocation": {
-                    "url": f"{base_url}/tools/validation",
-                    "method": "POST",
-                    "headers": {"Content-Type": "application/json"},
-                },
+                "endpoint": "/tools/validation",
+                "http_method": "POST",
+                "auth_requirements": [],
             },
         ],
     }
