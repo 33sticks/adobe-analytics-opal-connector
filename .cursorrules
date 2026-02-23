@@ -1,0 +1,296 @@
+# Adobe Analytics Connector for Optimizely Opal — Cursor Rules
+
+## Project Context
+
+You are building a custom Optimizely Opal tool that connects to Adobe Analytics, enabling
+natural language conversations about web analytics data within Opal Chat. This follows the
+same architectural pattern as a previously successful tool (Test Readiness Analyzer) built
+for the same platform.
+
+Read PROJECT_SPEC.md for the full specification before implementing anything. That document
+contains the complete architecture, API formats, use cases, and response structures.
+
+## Tech Stack
+
+- **Language:** Python 3.11+
+- **Framework:** FastAPI (async)
+- **HTTP Client:** httpx (async)
+- **Deployment:** Railway (Procfile-based)
+- **External APIs:** Adobe Analytics 2.0 API, Optimizely Opal Tool Registry
+- **Validation:** Pydantic v2
+- **Date Handling:** python-dateutil
+- **Testing:** pytest + pytest-asyncio
+
+## Architecture Rules
+
+### Opal Tool Pattern
+
+This project follows the Optimizely Opal custom tool pattern:
+
+1. **Discovery Endpoint** (`GET /discovery`): Returns a JSON manifest describing all tools,
+   their parameters, descriptions, and invocation URLs. Opal calls this when you register
+   or sync the tool. The manifest format is critical — see PROJECT_SPEC.md Section C.
+
+2. **Tool Endpoints** (`POST /tools/{tool_name}`): Each use case has its own endpoint.
+   Opal sends parameters as a JSON body. The tool processes the request, calls Adobe
+   Analytics, and returns a JSON response that Opal presents in chat.
+
+3. **Response Format**: Always return JSON with at minimum:
+   - `status`: "success" or "error"
+   - `message`: Human-readable response text (this is what Opal shows the user)
+   - `data`: Structured data object (optional, for Opal to reference)
+
+### How Opal Sends Requests
+
+IMPORTANT: Opal wraps tool parameters in a specific format. Based on production experience
+with the Test Readiness Analyzer, Opal sends requests like:
+
+```json
+{
+  "tool_name": "adobe_analytics_traffic",
+  "parameters": {
+    "metric": "pageviews",
+    "date_range": "last 7 days",
+    "top_n": "10"
+  }
+}
+```
+
+Key behaviors to handle:
+- Parameters may be nested under a `parameters` key OR sent flat — handle both
+- Integer parameters may arrive as strings — always coerce types
+- Optional parameters may be omitted entirely — always use defaults
+- Opal may include extra fields in the request body — ignore unknown fields
+
+### Authentication Header
+
+Opal sends a Bearer token to verify it's the legitimate caller:
+```
+Authorization: Bearer {OPAL_BEARER_TOKEN}
+```
+
+Validate this on every tool endpoint. Return 401 if missing or incorrect.
+
+## Coding Conventions
+
+### General
+
+- Use async/await throughout — FastAPI + httpx are both async-native
+- Type hints on all function signatures
+- Pydantic models for request/response validation
+- Docstrings on all public functions
+- Keep functions focused and small (< 50 lines)
+- Use dependency injection via FastAPI's Depends() for shared services
+
+### File Organization
+
+Follow the directory structure in PROJECT_SPEC.md exactly:
+- `app/auth/` — Adobe OAuth only
+- `app/discovery/` — Opal manifest only
+- `app/analytics/` — Adobe API client, query building, response parsing
+- `app/tools/` — One file per use case, each containing the endpoint logic
+- `app/utils/` — Date parsing, formatting helpers
+- `tests/` — Mirror the app structure
+
+### Error Handling
+
+- Never let unhandled exceptions reach the user
+- Adobe API errors → catch, log, return friendly JSON error
+- Token expiration → auto-refresh and retry once, then fail gracefully
+- Always return valid JSON even on errors
+- Log all Adobe API request/response pairs at DEBUG level
+- Log errors at ERROR level with full context
+
+### Config Management
+
+- All secrets via environment variables (never hardcoded)
+- Use `app/config.py` with a Pydantic Settings class:
+
+```python
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    adobe_client_id: str
+    adobe_client_secret: str
+    adobe_org_id: str
+    adobe_company_id: str
+    adobe_report_suite_id: str
+    opal_bearer_token: str
+    port: int = 8000
+    environment: str = "development"
+    log_level: str = "info"
+
+    class Config:
+        env_file = ".env"
+```
+
+### Logging
+
+- Use Python's built-in `logging` module
+- Structured log messages: `logger.info("Fetched report", extra={"rsid": rsid, "rows": len(rows)})`
+- Never log secrets, tokens, or full API keys
+- Log Adobe API response times for performance monitoring
+
+## Adobe Analytics API Reference
+
+### Authentication
+
+```
+POST https://ims-na1.adobelogin.com/ims/token/v3
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&client_id={id}&client_secret={secret}&scope=openid,AdobeID,read_organizations,additional_info.projectedProductContext
+```
+
+### Reports Endpoint
+
+```
+POST https://analytics.adobe.io/api/{COMPANY_ID}/reports
+Headers:
+  Authorization: Bearer {token}
+  x-api-key: {CLIENT_ID}
+  x-proxy-global-company-id: {COMPANY_ID}
+  Content-Type: application/json
+```
+
+### Available Dimensions and Metrics (Sandbox Only)
+
+IMPORTANT: The sandbox has limited data. Only use these:
+
+**Company ID:** exchane5
+**Report Suite ID:** 33sticksjennwebprops
+
+**Dimensions:**
+- `variables/page` — Page Name (values look like "DDT Blog > post > how i got onetrust...")
+- `variables/referrertype` — Referrer Type
+- `variables/daterangeday` — Date (day granularity)
+
+**Metrics:**
+- `metrics/pageviews` — Page Views (~4,800 total in a 3-week period)
+- `metrics/occurrences` — Occurrences
+
+**Segments:**
+- Basic OOB segments only (Mobile, Desktop, Tablet, New, Return visitors)
+- Must query the Segments API to get IDs, or hardcode known sandbox segment IDs
+
+**Data characteristics:**
+- ~80 unique pages total
+- Low traffic site (hundreds to low thousands of page views per month)
+- Page names use " > " as a delimiter (e.g., "DDT Blog > post > title")
+- Some page names contain HTML entities (e.g., &#8220;) — the response parser should decode these
+
+Do NOT attempt to query: revenue, conversions, eVars, props, products, campaigns,
+or custom calculated metrics. They don't exist in the sandbox.
+
+### Date Range Format
+
+Adobe uses ISO 8601 with a slash separator:
+```
+"2026-02-01T00:00:00.000/2026-02-15T00:00:00.000"
+```
+
+Both timestamps are inclusive of the start and exclusive of the end.
+
+### Sample Reports API Response (actual sandbox data)
+
+```json
+{
+  "totalPages": 16,
+  "firstPage": true,
+  "lastPage": false,
+  "numberOfElements": 5,
+  "number": 0,
+  "totalElements": 80,
+  "rows": [
+    {"data": [3352.0], "itemId": "2439908651", "value": "beacon parser > beacon parsed successfully"},
+    {"data": [983.0], "itemId": "2437100290", "value": "beacon parser > main"},
+    {"data": [119.0], "itemId": "3568101380", "value": "DDT Blog > post > how i got onetrust to work with adobe launch"},
+    {"data": [101.0], "itemId": "3324792768", "value": "DDT Blog > homepage >"},
+    {"data": [35.0], "itemId": "3865949280", "value": "DDT Blog > post > problems with the &#8220;autoblock&#8221; approach to consent management"}
+  ],
+  "summaryData": {
+    "filteredTotals": [4832.0],
+    "totals": [4832.0]
+  }
+}
+```
+
+Key parsing notes:
+- `rows[].data` is an array of floats, one per metric requested (index matches columnId order)
+- `rows[].value` is the dimension value — may contain HTML entities like `&#8220;` that need decoding
+- `summaryData.totals` gives the grand total across all rows (not just the page returned)
+- `totalElements` is the total number of unique dimension values (80 pages in this case)
+- Page names use " > " as section delimiters
+
+### Search/Filter Syntax (for page name filtering)
+
+```json
+{
+  "search": {
+    "clause": "( CONTAINS '/products' )"
+  }
+}
+```
+
+Operators: CONTAINS, BEGINS-WITH, ENDS-WITH, MATCH (regex)
+
+## Response Formatting Standards
+
+When building the `message` field in tool responses:
+
+- Use commas in numbers: 12,450 not 12450
+- Percentages to 1 decimal: 42.3%
+- Friendly date ranges: "Feb 1–15, 2026" not ISO format
+- Include a header line explaining what was queried
+- Include totals where meaningful
+- For comparisons, show absolute numbers AND percent change
+- For errors, be specific about what went wrong and suggest next steps
+- Keep responses concise — Opal Chat has limited display width
+
+## Testing Guidelines
+
+- Use pytest with pytest-asyncio for async tests
+- Mock Adobe API responses using httpx's MockTransport or respx
+- Test each date_parser pattern individually
+- Test query_builder output against expected Adobe API request format
+- Test response_parser against sample Adobe API responses
+- Test tool endpoints end-to-end with mocked API client
+- Test error scenarios: expired tokens, API errors, empty results, bad parameters
+
+## Deployment Notes
+
+### Railway-Specific
+
+- Entry point: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+- Railway provides PORT as an environment variable
+- Set all other env vars in Railway dashboard → Variables
+- Use Railway's built-in health checks (the GET / endpoint)
+- Railway auto-deploys from GitHub — push to main = deploy
+
+### Procfile
+
+```
+web: uvicorn main:app --host 0.0.0.0 --port $PORT
+```
+
+### Startup Sequence
+
+On startup, the app should:
+1. Load config from environment
+2. Initialize the Adobe auth manager (but don't fetch token yet — lazy init)
+3. Register FastAPI routes
+4. Log startup confirmation with environment name
+
+Do NOT fetch an Adobe token on startup — fetch lazily on first request.
+This prevents deployment failures if Adobe is temporarily unavailable.
+
+## Common Pitfalls to Avoid
+
+1. **Don't hardcode the report suite ID in queries** — always read from config
+2. **Don't assume Opal sends clean types** — coerce everything
+3. **Don't forget the x-proxy-global-company-id header** — Adobe 404s without it
+4. **Don't use requests library** — use httpx for async compatibility
+5. **Don't cache Adobe report data** — always fetch fresh (data should be real-time)
+6. **Don't return raw Adobe API responses** — always parse and format
+7. **Don't forget to handle empty result sets** — Adobe returns valid JSON with 0 rows
+8. **Don't log access tokens** — mask them in any debug output
