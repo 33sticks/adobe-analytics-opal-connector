@@ -7,8 +7,11 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import get_settings
 from app.discovery.manifest import get_manifest
+from app.tools.page_comparison import router as compare_router
 from app.tools.referrer_breakdown import router as referrer_router
+from app.tools.segment_insights import router as segments_router
 from app.tools.traffic_analysis import router as traffic_router
+from app.tools.traffic_validation import router as validation_router
 
 app = FastAPI(title="Adobe Analytics Opal Connector")
 
@@ -22,6 +25,9 @@ app.add_middleware(
 
 app.include_router(traffic_router)
 app.include_router(referrer_router)
+app.include_router(compare_router)
+app.include_router(segments_router)
+app.include_router(validation_router)
 
 
 @app.on_event("startup")

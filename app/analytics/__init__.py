@@ -6,6 +6,7 @@ from app.analytics.query_builder import (
     METRIC_MAP,
     build_ranked_report,
     build_trended_report,
+    build_trended_report_for_page,
     resolve_dimension,
     resolve_metric,
 )
@@ -27,6 +28,7 @@ __all__ = [
     "METRIC_MAP",
     "build_ranked_report",
     "build_trended_report",
+    "build_trended_report_for_page",
     "get_analytics_client",
     "parse_report_response",
     "parse_segments_response",

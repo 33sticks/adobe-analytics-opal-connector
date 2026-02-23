@@ -9,6 +9,7 @@ import pytest
 from app.analytics.query_builder import (
     build_ranked_report,
     build_trended_report,
+    build_trended_report_for_page,
     resolve_dimension,
     resolve_metric,
 )
@@ -234,3 +235,44 @@ class TestBuildTrendedReport:
             {"type": "dateRange", "dateRange": SAMPLE_DATE_RANGE},
             {"type": "segment", "segmentId": "s789_ghi"},
         ]
+
+
+class TestBuildTrendedReportForPage:
+    """Tests for build_trended_report_for_page()."""
+
+    def test_correct_structure(self):
+        """Returns valid report structure with metricFilters and page itemId."""
+        result = build_trended_report_for_page(
+            rsid=SAMPLE_RSID,
+            metric="pageviews",
+            date_range=SAMPLE_DATE_RANGE,
+            page_item_id="2439908651",
+        )
+        assert result["rsid"] == SAMPLE_RSID
+        assert result["dimension"] == "variables/daterangeday"
+        assert result["metricContainer"]["metrics"] == [
+            {"columnId": "0", "id": "metrics/pageviews", "filters": ["page_filter_0"]}
+        ]
+        assert result["metricContainer"]["metricFilters"] == [
+            {
+                "id": "page_filter_0",
+                "type": "breakdown",
+                "dimension": "variables/page",
+                "itemId": "2439908651",
+            }
+        ]
+        assert result["globalFilters"] == [
+            {"type": "dateRange", "dateRange": SAMPLE_DATE_RANGE}
+        ]
+        assert result["settings"]["limit"] == 400
+
+    def test_custom_dimension_id(self):
+        """Custom dimension_id is passed."""
+        result = build_trended_report_for_page(
+            rsid=SAMPLE_RSID,
+            metric="occurrences",
+            date_range=SAMPLE_DATE_RANGE,
+            page_item_id="123",
+            dimension_id="variables/custompage",
+        )
+        assert result["metricContainer"]["metricFilters"][0]["dimension"] == "variables/custompage"

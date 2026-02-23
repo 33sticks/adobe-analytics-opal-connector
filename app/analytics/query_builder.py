@@ -162,3 +162,60 @@ def build_trended_report(
         search_filter=search_filter,
         segment_id=segment_id,
     )
+
+
+def build_trended_report_for_page(
+    rsid: str,
+    metric: str,
+    date_range: str,
+    page_item_id: str,
+    dimension_id: str = "variables/page",
+) -> dict:
+    """
+    Build a trended report filtered to a specific page using metricFilters.
+
+    Uses a breakdown metricFilter to restrict the metric to hits for the
+    given page (by itemId). Dimension is always variables/daterangeday for
+    daily granularity.
+
+    Args:
+        rsid: Report suite ID.
+        metric: Metric to trend (resolved via resolve_metric).
+        date_range: Date range in Adobe ISO format.
+        page_item_id: Adobe itemId of the page (from a ranked report response).
+        dimension_id: Dimension used for the breakdown filter. Default variables/page.
+
+    Returns:
+        Dict matching the Adobe Analytics Reports API request body format.
+    """
+    resolved_metric = resolve_metric(metric)
+    return {
+        "rsid": rsid,
+        "globalFilters": [
+            {"type": "dateRange", "dateRange": date_range}
+        ],
+        "metricContainer": {
+            "metrics": [
+                {
+                    "columnId": "0",
+                    "id": resolved_metric,
+                    "filters": ["page_filter_0"],
+                }
+            ],
+            "metricFilters": [
+                {
+                    "id": "page_filter_0",
+                    "type": "breakdown",
+                    "dimension": dimension_id,
+                    "itemId": page_item_id,
+                }
+            ],
+        },
+        "dimension": "variables/daterangeday",
+        "settings": {
+            "countRepeatInstances": True,
+            "limit": 400,
+            "page": 0,
+            "nonesBehavior": "return-nones",
+        },
+    }

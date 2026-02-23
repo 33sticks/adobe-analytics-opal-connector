@@ -75,5 +75,116 @@ def get_manifest(base_url: str) -> dict:
                     "headers": {"Content-Type": "application/json"},
                 },
             },
+            {
+                "name": "adobe_analytics_page_comparison",
+                "description": "Compares page performance across two time periods in Adobe Analytics. Use this when users ask to compare pages, want period-over-period analysis, or ask about traffic changes over time. Shows absolute numbers and percent change for each page.",
+                "parameters": [
+                    {
+                        "name": "pages",
+                        "type": "string",
+                        "description": "Comma-separated list of page names to compare. Example: '/home, /about, /contact'",
+                        "required": True,
+                    },
+                    {
+                        "name": "metric",
+                        "type": "string",
+                        "description": "'pageviews' or 'occurrences'. Default: 'pageviews'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "current_period",
+                        "type": "string",
+                        "description": "The current time period in natural language. Default: 'last 7 days'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "prior_period",
+                        "type": "string",
+                        "description": "The comparison time period in natural language. Default: 'last 14 days' offset to the period before current_period. If not specified, automatically uses the same-length period immediately before current_period.",
+                        "required": False,
+                    },
+                ],
+                "invocation": {
+                    "url": f"{base_url}/tools/compare",
+                    "method": "POST",
+                    "headers": {"Content-Type": "application/json"},
+                },
+            },
+            {
+                "name": "adobe_analytics_segments",
+                "description": "Breaks down website traffic by audience segment from Adobe Analytics. Use this when users ask about mobile vs desktop traffic, new vs returning visitors, or any segment-level comparison. Available segments include Mobile Visitors, Desktop Visitors, Tablet Visitors, New Visitors, and Return Visitors.",
+                "parameters": [
+                    {
+                        "name": "segments",
+                        "type": "string",
+                        "description": "Comma-separated segment names to compare. Available: 'mobile', 'desktop', 'phones', 'tablet', 'new visitors', 'return visitors', 'search', 'social', 'single page visits', 'non-bounces'.",
+                        "required": True,
+                    },
+                    {
+                        "name": "metric",
+                        "type": "string",
+                        "description": "'pageviews' or 'occurrences'. Default: 'pageviews'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "date_range",
+                        "type": "string",
+                        "description": "Time period in natural language. Default: 'last 7 days'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "dimension",
+                        "type": "string",
+                        "description": "'page' or 'referrer_type'. Default: 'page'. Determines the breakdown dimension.",
+                        "required": False,
+                    },
+                    {
+                        "name": "top_n",
+                        "type": "integer",
+                        "description": "Number of top items to return per segment. Default: 5. Max: 20.",
+                        "required": False,
+                    },
+                ],
+                "invocation": {
+                    "url": f"{base_url}/tools/segments",
+                    "method": "POST",
+                    "headers": {"Content-Type": "application/json"},
+                },
+            },
+            {
+                "name": "adobe_analytics_traffic_validation",
+                "description": "Analyzes daily traffic patterns for a specific page to help validate if there is enough traffic for an A/B test. Use this when users ask about traffic volume for experiment planning, want to know if a page gets enough traffic for testing, or need daily traffic trends. Provides daily averages, min/max, trend direction, and estimated sample size for a given test duration.",
+                "parameters": [
+                    {
+                        "name": "page_filter",
+                        "type": "string",
+                        "description": "Page name or partial match to analyze. Example: '/pricing' or 'homepage'.",
+                        "required": True,
+                    },
+                    {
+                        "name": "metric",
+                        "type": "string",
+                        "description": "'pageviews' or 'occurrences'. Default: 'pageviews'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "date_range",
+                        "type": "string",
+                        "description": "Time period to analyze. Default: 'last 30 days'. Longer periods give more reliable estimates.",
+                        "required": False,
+                    },
+                    {
+                        "name": "test_duration_days",
+                        "type": "integer",
+                        "description": "Planned test duration in days. Default: 14. Used to estimate total traffic during the test.",
+                        "required": False,
+                    },
+                ],
+                "invocation": {
+                    "url": f"{base_url}/tools/validation",
+                    "method": "POST",
+                    "headers": {"Content-Type": "application/json"},
+                },
+            },
         ],
     }

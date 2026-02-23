@@ -119,7 +119,14 @@ class AdobeAnalyticsClient:
             f"Adobe Analytics request failed: HTTP {response.status_code}"
         )
 
-    async def get_segments(self, rsid: Optional[str] = None) -> list[dict[str, Any]]:
+    async def get_segments(
+        self,
+        rsid: Optional[str] = None,
+        *,
+        limit: int = 50,
+        include_type: str = "shared,all",
+        expansion: Optional[str] = None,
+    ) -> list[dict[str, Any]]:
         """
         GET available segments from Adobe Analytics.
 
@@ -128,11 +135,13 @@ class AdobeAnalyticsClient:
         """
         company_id = self.settings.adobe_company_id
         report_suite = rsid or self.settings.adobe_report_suite_id
-        params = {
+        params: dict[str, Any] = {
             "rsid": report_suite,
-            "limit": 50,
-            "includeType": "shared,all",
+            "limit": limit,
+            "includeType": include_type,
         }
+        if expansion:
+            params["expansion"] = expansion
         url = f"/api/{company_id}/segments"
         headers = await self._build_headers()
 

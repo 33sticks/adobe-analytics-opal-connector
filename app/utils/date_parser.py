@@ -154,6 +154,16 @@ def _parse_to_dates(date_range: str) -> tuple[date, date]:
     return default_range()
 
 
+def get_date_bounds(date_range: str) -> tuple[date, date]:
+    """
+    Parse natural language date range to (start_date, end_date).
+
+    Both dates are inclusive. Wraps _parse_to_dates for use by tools that need
+    date bounds (e.g. prior-period calculation).
+    """
+    return _parse_to_dates(date_range)
+
+
 def parse_date_range(date_range: str) -> str:
     """
     Convert natural language date range to Adobe Analytics ISO 8601 format.
@@ -188,6 +198,29 @@ def _is_full_quarter(start: date, end: date) -> bool:
     return end == date(start.year, end_month, last_day)
 
 
+def _format_bounds_display(start: date, end: date) -> str:
+    """Format (start, end) as human-readable string."""
+    if start == end:
+        return f"{start.strftime('%b')} {start.day}, {start.year}"
+    if _is_full_month(start, end):
+        return start.strftime("%B %Y")
+    if _is_full_quarter(start, end):
+        return f"{start.strftime('%b')} {start.day} – {end.strftime('%b')} {end.day}, {end.year}"
+    if start.month == end.month and start.year == end.year:
+        return f"{start.strftime('%b')} {start.day}–{end.day}, {end.year}"
+    return f"{start.strftime('%b')} {start.day}, {start.year} – {end.strftime('%b')} {end.day}, {end.year}"
+
+
+def format_date_bounds_display(start: date, end: date) -> str:
+    """
+    Format (start_date, end_date) as human-readable display string.
+
+    Both dates are inclusive. Use when you have date bounds from get_date_bounds
+    rather than a natural language string.
+    """
+    return _format_bounds_display(start, end)
+
+
 def format_date_range_display(date_range: str) -> str:
     """
     Convert natural language date range to human-readable display string.
@@ -200,22 +233,4 @@ def format_date_range_display(date_range: str) -> str:
         "Jan 1 – Mar 31, 2026", or "Feb 22, 2026".
     """
     start, end = _parse_to_dates(date_range)
-
-    # Single day
-    if start == end:
-        return f"{start.strftime('%b')} {start.day}, {start.year}"
-
-    # Full month
-    if _is_full_month(start, end):
-        return start.strftime("%B %Y")
-
-    # Full quarter
-    if _is_full_quarter(start, end):
-        return f"{start.strftime('%b')} {start.day} – {end.strftime('%b')} {end.day}, {end.year}"
-
-    # Same month
-    if start.month == end.month and start.year == end.year:
-        return f"{start.strftime('%b')} {start.day}–{end.day}, {end.year}"
-
-    # Different months
-    return f"{start.strftime('%b')} {start.day}, {start.year} – {end.strftime('%b')} {end.day}, {end.year}"
+    return _format_bounds_display(start, end)
