@@ -1,31 +1,96 @@
-"""Traffic analysis tool — top pages by metric (Sprint 1 stub)."""
+"""Traffic analysis tool — top pages by metric."""
 
 from fastapi import APIRouter, Depends
 
+from app.analytics.client import AdobeAnalyticsError, get_analytics_client
+from app.analytics.query_builder import build_ranked_report, resolve_metric
+from app.analytics.response_parser import METRIC_DISPLAY, parse_report_response
 from app.auth.opal_auth import verify_opal_token
+from app.config import get_settings
 from app.tools import extract_parameters
+from app.utils.date_parser import format_date_range_display, parse_date_range
 
 router = APIRouter(prefix="/tools", tags=["tools"])
 
 
 @router.post("/traffic", dependencies=[Depends(verify_opal_token)])
 async def traffic_analysis(body: dict) -> dict:
-    """Stub endpoint for traffic analysis. Full implementation in Sprint 2."""
-    params = extract_parameters(body)
-    metric = params["metric"]
-    date_range = params["date_range"]
-    top_n = params["top_n"]
-    page_filter = params["page_filter"]
+    """Return top pages by metric from Adobe Analytics."""
+    try:
+        params = extract_parameters(body)
+        date_range_str = params["date_range"]
+        top_n = params["top_n"]
+        page_filter = params["page_filter"]
 
-    page_filter_str = str(page_filter) if page_filter is not None else "None"
-    message = (
-        f"Traffic analysis tool received your request. Parameters: metric={metric}, "
-        f"date_range={date_range}, top_n={top_n}, page_filter={page_filter_str}. "
-        "Full implementation coming in Sprint 2."
-    )
+        adobe_date_range = parse_date_range(date_range_str)
+        date_range_display = format_date_range_display(date_range_str)
 
-    return {
-        "status": "success",
-        "message": message,
-        "data": {},
-    }
+        resolved_metric = resolve_metric(params["metric"])
+        metric_display = METRIC_DISPLAY.get(resolved_metric, resolved_metric)
+
+        settings = get_settings()
+        request_body = build_ranked_report(
+            rsid=settings.adobe_report_suite_id,
+            dimension="variables/page",
+            metrics=[resolved_metric],
+            date_range=adobe_date_range,
+            limit=top_n,
+            search_filter=page_filter,
+        )
+
+        client = get_analytics_client()
+        response = await client.get_report(request_body)
+
+        result = parse_report_response(
+            response=response,
+            metric_labels=[metric_display],
+            dimension_label="Page",
+            date_range_display=date_range_display,
+        )
+
+        lines = [
+            f"Top {result.row_count} pages by {metric_display} ({date_range_display}):",
+            "",
+        ]
+        for i, row in enumerate(result.rows, 1):
+            value = row.get(metric_display, 0)
+            lines.append(f"{i}. {row['value']} — {value:,.0f}")
+        lines.append("")
+        total = result.totals.get(metric_display, 0)
+        lines.append(
+            f"Total {metric_display}: {total:,.0f} across {result.total_available} pages"
+        )
+        if page_filter:
+            lines.append(f"Filtered to pages containing '{page_filter}'")
+
+        message = "\n".join(lines)
+
+        return {
+            "status": "success",
+            "message": message,
+            "data": {
+                "rows": result.rows,
+                "totals": result.totals,
+                "date_range": date_range_display,
+                "total_pages": result.total_available,
+            },
+        }
+
+    except ValueError as e:
+        return {
+            "status": "error",
+            "message": f"Invalid parameter: {e}. Use 'pageviews' or 'occurrences' for metric.",
+            "data": {},
+        }
+    except AdobeAnalyticsError as e:
+        return {
+            "status": "error",
+            "message": f"Unable to retrieve traffic data: {e}",
+            "data": {},
+        }
+    except Exception:
+        return {
+            "status": "error",
+            "message": "An unexpected error occurred. Please try again.",
+            "data": {},
+        }
