@@ -6,6 +6,9 @@ import html
 from dataclasses import dataclass
 from typing import Any, Union
 
+from app.metadata.registry import get_registry
+
+# Legacy display maps — kept for backward compatibility
 DIMENSION_DISPLAY: dict[str, str] = {
     "variables/page": "Page",
     "variables/referrertype": "Referrer Type",
@@ -16,6 +19,26 @@ METRIC_DISPLAY: dict[str, str] = {
     "metrics/pageviews": "Page Views",
     "metrics/occurrences": "Occurrences",
 }
+
+
+def get_dimension_display(adobe_id: str) -> str:
+    """Get display name for a dimension ID. Checks registry first, then legacy map."""
+    registry = get_registry()
+    if registry.is_loaded:
+        name = registry.get_dimension_display(adobe_id)
+        if name:
+            return name
+    return DIMENSION_DISPLAY.get(adobe_id, adobe_id)
+
+
+def get_metric_display(adobe_id: str) -> str:
+    """Get display name for a metric ID. Checks registry first, then legacy map."""
+    registry = get_registry()
+    if registry.is_loaded:
+        name = registry.get_metric_display(adobe_id)
+        if name:
+            return name
+    return METRIC_DISPLAY.get(adobe_id, adobe_id)
 
 
 @dataclass

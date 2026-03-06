@@ -11,13 +11,18 @@ from app.tools.page_comparison import router as compare_router
 from app.tools.referrer_breakdown import router as referrer_router
 from app.tools.segment_insights import router as segments_router
 from app.tools.traffic_analysis import router as traffic_router
+from app.tools.query import router as query_router
+from app.tools.schema import router as schema_router
 from app.tools.traffic_validation import router as validation_router
 
 app = FastAPI(title="Adobe Analytics Opal Connector")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://app.optimizely.com",
+        "https://web-production-265df.up.railway.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -28,6 +33,8 @@ app.include_router(referrer_router)
 app.include_router(compare_router)
 app.include_router(segments_router)
 app.include_router(validation_router)
+app.include_router(query_router)
+app.include_router(schema_router)
 
 
 @app.on_event("startup")

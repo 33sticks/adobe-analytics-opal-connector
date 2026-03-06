@@ -1,0 +1,4238 @@
+{
+  "rsid": "33sticksjennwebprops",
+  "dimensions": [
+    {
+      "id": "variables/averagepagetime",
+      "name": "Time Spent on Page - Bucketed",
+      "description": "The amount of time a visitor spends on the page. The amount of time is categorized into different time ranges or \"buckets.\" This can help you understand how long visitors interact with a given metric on the site.",
+      "aliases": [
+        "Time Spent on Page - Bucketed",
+        "averagepagetime",
+        "time spent on page - bucketed",
+        "time-spent-on-page---bucketed",
+        "time_spent_on_page_-_bucketed",
+        "timespentonpage-bucketed"
+      ]
+    },
+    {
+      "id": "variables/botname",
+      "name": "Bot Name",
+      "description": "Shows the names of the bots detected or custom bot rules supplied. Bot Name should only be used with Bot Page Views and Bot Occurrences. If this dimensions is used with any other Analytics metric, no data will result because it is unassociated with normal customer-based data in Analytics. Data processing for Bot Page Views began between February 26 and March 10, 2023, any reporting window prior to this date will not have data. This is an Adobe provided component.",
+      "aliases": [
+        "Bot Name",
+        "bot name",
+        "bot-name",
+        "bot_name",
+        "botname"
+      ]
+    },
+    {
+      "id": "variables/browser",
+      "name": "Browser",
+      "description": "Shows the name and version of the browser used to access the site. This can help you prioritize which browsers and browser versions you use when testing new features or versions of your site.",
+      "aliases": [
+        "Browser",
+        "browser"
+      ]
+    },
+    {
+      "id": "variables/browserheight",
+      "name": "Browser Height - Granular",
+      "description": "Categorizes site visitors based on the height of their browser window.",
+      "aliases": [
+        "Browser Height - Granular",
+        "browser height - granular",
+        "browser-height---granular",
+        "browser_height_-_granular",
+        "browserheight",
+        "browserheight-granular"
+      ]
+    },
+    {
+      "id": "variables/browserheightbucketed",
+      "name": "Browser Height - Bucketed",
+      "description": "Shows the height of the browser window, classified in groups of 100 pixels. This can help you prioritize content to make it visible to users without scrolling.",
+      "aliases": [
+        "Browser Height - Bucketed",
+        "browser height - bucketed",
+        "browser-height---bucketed",
+        "browser_height_-_bucketed",
+        "browserheight-bucketed",
+        "browserheightbucketed"
+      ]
+    },
+    {
+      "id": "variables/browsertype",
+      "name": "Browser Type",
+      "description": "Shows the name of browser providers used to access the site (such as Google and Apple). This can help you prioritize which browsers you use when testing new features or versions of your site.",
+      "aliases": [
+        "Browser Type",
+        "browser type",
+        "browser-type",
+        "browser_type",
+        "browsertype"
+      ]
+    },
+    {
+      "id": "variables/browserwidth",
+      "name": "Browser Width - Granular",
+      "description": "Shows the width of the browser window, classified in groups of 100 pixels.",
+      "aliases": [
+        "Browser Width - Granular",
+        "browser width - granular",
+        "browser-width---granular",
+        "browser_width_-_granular",
+        "browserwidth",
+        "browserwidth-granular"
+      ]
+    },
+    {
+      "id": "variables/browserwidthbucketed",
+      "name": "Browser Width - Bucketed",
+      "description": "Shows the width of the browser window, classified in groups of 100 pixels. This can help you optimize content for viewing.",
+      "aliases": [
+        "Browser Width - Bucketed",
+        "browser width - bucketed",
+        "browser-width---bucketed",
+        "browser_width_-_bucketed",
+        "browserwidth-bucketed",
+        "browserwidthbucketed"
+      ]
+    },
+    {
+      "id": "variables/campaign",
+      "name": "Tracking Code",
+      "description": "",
+      "aliases": [
+        "Tracking Code",
+        "campaign",
+        "tracking code",
+        "tracking-code",
+        "tracking_code",
+        "trackingcode"
+      ]
+    },
+    {
+      "id": "variables/category",
+      "name": "Category",
+      "description": "The product category of the hit. If your implementation uses the 'products' variable, this can help you see metrics about the product category, such as top sellers or most viewed.",
+      "aliases": [
+        "Category",
+        "category"
+      ]
+    },
+    {
+      "id": "variables/clickmapaction",
+      "name": "ClickMap Action (Legacy)",
+      "description": "Identifies the type of click that a visitor made on a specific element of a web page. This dimension is used in conjunction with the \"click map\" report in Adobe Analytics, which provides a visual representation of where visitors are clicking on a web page. The \"click map action\" dimension can have a number of different values, depending on the type of element that was clicked on. For example, some common values might include \"link click\", \"button click\", \"form submit\", \"video play\", or \"image click\".",
+      "aliases": [
+        "ClickMap Action (Legacy)",
+        "clickmap action (legacy)",
+        "clickmap-action-(legacy)",
+        "clickmap_action_(legacy)",
+        "clickmapaction",
+        "clickmapaction(legacy)"
+      ]
+    },
+    {
+      "id": "variables/clickmapactiontype",
+      "name": "ClickMap Action Type (Legacy)",
+      "description": "",
+      "aliases": [
+        "ClickMap Action Type (Legacy)",
+        "clickmap action type (legacy)",
+        "clickmap-action-type-(legacy)",
+        "clickmap_action_type_(legacy)",
+        "clickmapactiontype",
+        "clickmapactiontype(legacy)"
+      ]
+    },
+    {
+      "id": "variables/clickmapcontext",
+      "name": "ClickMap Context (Legacy)",
+      "description": "",
+      "aliases": [
+        "ClickMap Context (Legacy)",
+        "clickmap context (legacy)",
+        "clickmap-context-(legacy)",
+        "clickmap_context_(legacy)",
+        "clickmapcontext",
+        "clickmapcontext(legacy)"
+      ]
+    },
+    {
+      "id": "variables/clickmapcontexttype",
+      "name": "ClickMap Context Type (Legacy)",
+      "description": "",
+      "aliases": [
+        "ClickMap Context Type (Legacy)",
+        "clickmap context type (legacy)",
+        "clickmap-context-type-(legacy)",
+        "clickmap_context_type_(legacy)",
+        "clickmapcontexttype",
+        "clickmapcontexttype(legacy)"
+      ]
+    },
+    {
+      "id": "variables/clickmaplink",
+      "name": "Activity Map Link",
+      "description": "",
+      "aliases": [
+        "Activity Map Link",
+        "activity map link",
+        "activity-map-link",
+        "activity_map_link",
+        "activitymaplink",
+        "clickmaplink"
+      ]
+    },
+    {
+      "id": "variables/clickmaplinkbyregion",
+      "name": "Activity Map Link By Region",
+      "description": "",
+      "aliases": [
+        "Activity Map Link By Region",
+        "activity map link by region",
+        "activity-map-link-by-region",
+        "activity_map_link_by_region",
+        "activitymaplinkbyregion",
+        "clickmaplinkbyregion"
+      ]
+    },
+    {
+      "id": "variables/clickmappage",
+      "name": "Activity Map Page",
+      "description": "",
+      "aliases": [
+        "Activity Map Page",
+        "activity map page",
+        "activity-map-page",
+        "activity_map_page",
+        "activitymappage",
+        "clickmappage"
+      ]
+    },
+    {
+      "id": "variables/clickmapregion",
+      "name": "Activity Map Region",
+      "description": "",
+      "aliases": [
+        "Activity Map Region",
+        "activity map region",
+        "activity-map-region",
+        "activity_map_region",
+        "activitymapregion",
+        "clickmapregion"
+      ]
+    },
+    {
+      "id": "variables/clickmapsourceid",
+      "name": "ClickMap Source ID (Legacy)",
+      "description": "",
+      "aliases": [
+        "ClickMap Source ID (Legacy)",
+        "clickmap source id (legacy)",
+        "clickmap-source-id-(legacy)",
+        "clickmap_source_id_(legacy)",
+        "clickmapsourceid",
+        "clickmapsourceid(legacy)"
+      ]
+    },
+    {
+      "id": "variables/clickmaptag",
+      "name": "ClickMap Tag (Legacy)",
+      "description": "",
+      "aliases": [
+        "ClickMap Tag (Legacy)",
+        "clickmap tag (legacy)",
+        "clickmap-tag-(legacy)",
+        "clickmap_tag_(legacy)",
+        "clickmaptag",
+        "clickmaptag(legacy)"
+      ]
+    },
+    {
+      "id": "variables/clickmapxy",
+      "name": "Activity Map Scroll Reach",
+      "description": "",
+      "aliases": [
+        "Activity Map Scroll Reach",
+        "activity map scroll reach",
+        "activity-map-scroll-reach",
+        "activity_map_scroll_reach",
+        "activitymapscrollreach",
+        "clickmapxy"
+      ]
+    },
+    {
+      "id": "variables/codeversion",
+      "name": "Code Version",
+      "description": "",
+      "aliases": [
+        "Code Version",
+        "code version",
+        "code-version",
+        "code_version",
+        "codeversion"
+      ]
+    },
+    {
+      "id": "variables/colordepth",
+      "name": "Color Depth",
+      "description": "The number of colors that a screen supports",
+      "aliases": [
+        "Color Depth",
+        "color depth",
+        "color-depth",
+        "color_depth",
+        "colordepth"
+      ]
+    },
+    {
+      "id": "variables/connectiontype",
+      "name": "Connection Type",
+      "description": "The method used by a visitor to connect to the internet, such as a wired or wireless connection. This can help you know how to optimize site content based on visitors' connection speeds.",
+      "aliases": [
+        "Connection Type",
+        "connection type",
+        "connection-type",
+        "connection_type",
+        "connectiontype"
+      ]
+    },
+    {
+      "id": "variables/cookie",
+      "name": "Cookie Support",
+      "description": "Whether a visitor's browser supports cookies for a given hit. This can help you determine the ratio of visitors who use browsers that support cookies, and those who intentionally disable them.",
+      "aliases": [
+        "Cookie Support",
+        "cookie",
+        "cookie support",
+        "cookie-support",
+        "cookie_support",
+        "cookiesupport"
+      ]
+    },
+    {
+      "id": "variables/currency",
+      "name": "Currency",
+      "description": "",
+      "aliases": [
+        "Currency",
+        "currency"
+      ]
+    },
+    {
+      "id": "variables/currencyfactor",
+      "name": "Currency Factor",
+      "description": "",
+      "aliases": [
+        "Currency Factor",
+        "currency factor",
+        "currency-factor",
+        "currency_factor",
+        "currencyfactor"
+      ]
+    },
+    {
+      "id": "variables/currencyrate",
+      "name": "Currency Rate",
+      "description": "",
+      "aliases": [
+        "Currency Rate",
+        "currency rate",
+        "currency-rate",
+        "currency_rate",
+        "currencyrate"
+      ]
+    },
+    {
+      "id": "variables/custhittimegmt",
+      "name": "Custom Hit Time UTC",
+      "description": "",
+      "aliases": [
+        "Custom Hit Time UTC",
+        "custhittimegmt",
+        "custom hit time utc",
+        "custom-hit-time-utc",
+        "custom_hit_time_utc",
+        "customhittimeutc"
+      ]
+    },
+    {
+      "id": "variables/customerloyalty",
+      "name": "Customer Loyalty",
+      "description": "The degree to which visitors consistently engage with and return to the site over time. This can help you understand how the site affects purchasing behavior.",
+      "aliases": [
+        "Customer Loyalty",
+        "customer loyalty",
+        "customer-loyalty",
+        "customer_loyalty",
+        "customerloyalty"
+      ]
+    },
+    {
+      "id": "variables/customerperspective",
+      "name": "Customer Perspective",
+      "description": "",
+      "aliases": [
+        "Customer Perspective",
+        "customer perspective",
+        "customer-perspective",
+        "customer_perspective",
+        "customerperspective"
+      ]
+    },
+    {
+      "id": "variables/customlink",
+      "name": "Custom Link",
+      "description": "Shows the names of custom links on your site. This can help you understand the types of links visitors most often click.",
+      "aliases": [
+        "Custom Link",
+        "custom link",
+        "custom-link",
+        "custom_link",
+        "customlink"
+      ]
+    },
+    {
+      "id": "variables/custvisid",
+      "name": "Custom Visitor ID",
+      "description": "",
+      "aliases": [
+        "Custom Visitor ID",
+        "custom visitor id",
+        "custom-visitor-id",
+        "custom_visitor_id",
+        "customvisitorid",
+        "custvisid"
+      ]
+    },
+    {
+      "id": "variables/dailyuniquecustomers",
+      "name": "Daily Unique Customers",
+      "description": "The number of unique visitors per day.",
+      "aliases": [
+        "Daily Unique Customers",
+        "daily unique customers",
+        "daily-unique-customers",
+        "daily_unique_customers",
+        "dailyuniquecustomers"
+      ]
+    },
+    {
+      "id": "variables/daterangeday",
+      "name": "Day",
+      "description": "",
+      "aliases": [
+        "Day",
+        "daterangeday",
+        "day"
+      ]
+    },
+    {
+      "id": "variables/daterangehour",
+      "name": "Hour",
+      "description": "The hour that a given metric occurred (rounded down). This can help you see metrics over time in trended reports.",
+      "aliases": [
+        "Hour",
+        "daterangehour",
+        "hour"
+      ]
+    },
+    {
+      "id": "variables/daterangeminute",
+      "name": "Minute",
+      "description": "The minute that a given metric occurred (rounded down). This can help you see metrics over time in trended reports.",
+      "aliases": [
+        "Minute",
+        "daterangeminute",
+        "minute"
+      ]
+    },
+    {
+      "id": "variables/daterangemonth",
+      "name": "Month",
+      "description": "The month that a given metric occurred. This can help you see metrics over time in trended reports.",
+      "aliases": [
+        "Month",
+        "daterangemonth",
+        "month"
+      ]
+    },
+    {
+      "id": "variables/daterangequarter",
+      "name": "Quarter",
+      "description": "The quarter that a given metric occurred. This can help you see metrics over time in trended reports.",
+      "aliases": [
+        "Quarter",
+        "daterangequarter",
+        "quarter"
+      ]
+    },
+    {
+      "id": "variables/daterangeweek",
+      "name": "Week",
+      "description": "The week that a given metric occurred. This can help you see metrics over time in trended reports.",
+      "aliases": [
+        "Week",
+        "daterangeweek",
+        "week"
+      ]
+    },
+    {
+      "id": "variables/daterangeyear",
+      "name": "Year",
+      "description": "The year that a given metric occurred.",
+      "aliases": [
+        "Year",
+        "daterangeyear",
+        "year"
+      ]
+    },
+    {
+      "id": "variables/daysbeforefirstpurchase",
+      "name": "Days Before First Purchase",
+      "description": "The number of days between a user's first visit to a website and their first purchase.",
+      "aliases": [
+        "Days Before First Purchase",
+        "days before first purchase",
+        "days-before-first-purchase",
+        "days_before_first_purchase",
+        "daysbeforefirstpurchase"
+      ]
+    },
+    {
+      "id": "variables/dayssincelastpurchase",
+      "name": "Days Since Last Purchase",
+      "description": "The number of days between a visitor's current visit and their most recent purchase. This can help you understand visitor behavior after making a purchase on the site.",
+      "aliases": [
+        "Days Since Last Purchase",
+        "days since last purchase",
+        "days-since-last-purchase",
+        "days_since_last_purchase",
+        "dayssincelastpurchase"
+      ]
+    },
+    {
+      "id": "variables/dayssincelastvisit",
+      "name": "Days Since Last Visit",
+      "description": "The number of days between a visitor's current visit and their most recent visit. This can help you understand visitor behavior after visiting the site.",
+      "aliases": [
+        "Days Since Last Visit",
+        "days since last visit",
+        "days-since-last-visit",
+        "days_since_last_visit",
+        "dayssincelastvisit"
+      ]
+    },
+    {
+      "id": "variables/domain",
+      "name": "Domains",
+      "description": "Access points that visitors use to access the internet.",
+      "aliases": [
+        "Domains",
+        "domain",
+        "domains"
+      ]
+    },
+    {
+      "id": "variables/downloadlink",
+      "name": "Download Link",
+      "description": "The names of download links on the site. This can help you understand things like which files are downloaded most frequently and whether visitors download different file types if offered.",
+      "aliases": [
+        "Download Link",
+        "download link",
+        "download-link",
+        "download_link",
+        "downloadlink"
+      ]
+    },
+    {
+      "id": "variables/duplicatepurchase",
+      "name": "Duplicate Purchase",
+      "description": "",
+      "aliases": [
+        "Duplicate Purchase",
+        "duplicate purchase",
+        "duplicate-purchase",
+        "duplicate_purchase",
+        "duplicatepurchase"
+      ]
+    },
+    {
+      "id": "variables/entryclickmapxy",
+      "name": "Entry Activity Map Scroll Reach",
+      "description": "",
+      "aliases": [
+        "Entry Activity Map Scroll Reach",
+        "entry activity map scroll reach",
+        "entry-activity-map-scroll-reach",
+        "entry_activity_map_scroll_reach",
+        "entryactivitymapscrollreach",
+        "entryclickmapxy"
+      ]
+    },
+    {
+      "id": "variables/entrypage",
+      "name": "Entry Page",
+      "description": "The names of pages on your site. This can help you understand which pages on your site perform the best. This is one of the most commonly used dimensions.",
+      "aliases": [
+        "Entry Page",
+        "entry page",
+        "entry-page",
+        "entry_page",
+        "entrypage"
+      ]
+    },
+    {
+      "id": "variables/entrypagedw",
+      "name": "Visit Start Page",
+      "description": "",
+      "aliases": [
+        "Visit Start Page",
+        "entrypagedw",
+        "visit start page",
+        "visit-start-page",
+        "visit_start_page",
+        "visitstartpage"
+      ]
+    },
+    {
+      "id": "variables/entrypageoriginal",
+      "name": "Entry Page Original",
+      "description": "The first page viewed by a visitor when they enter the site.",
+      "aliases": [
+        "Entry Page Original",
+        "entry page original",
+        "entry-page-original",
+        "entry_page_original",
+        "entrypageoriginal"
+      ]
+    },
+    {
+      "id": "variables/entryprop1",
+      "name": "Entry Custom Insight 1",
+      "description": "",
+      "aliases": [
+        "Entry Custom Insight 1",
+        "entry custom insight 1",
+        "entry-custom-insight-1",
+        "entry_custom_insight_1",
+        "entrycustominsight1",
+        "entryprop1"
+      ]
+    },
+    {
+      "id": "variables/entryprop2",
+      "name": "Entry Custom Insight 2",
+      "description": "",
+      "aliases": [
+        "Entry Custom Insight 2",
+        "entry custom insight 2",
+        "entry-custom-insight-2",
+        "entry_custom_insight_2",
+        "entrycustominsight2",
+        "entryprop2"
+      ]
+    },
+    {
+      "id": "variables/entryprop3",
+      "name": "Entry Custom Insight 3",
+      "description": "",
+      "aliases": [
+        "Entry Custom Insight 3",
+        "entry custom insight 3",
+        "entry-custom-insight-3",
+        "entry_custom_insight_3",
+        "entrycustominsight3",
+        "entryprop3"
+      ]
+    },
+    {
+      "id": "variables/entryprop4",
+      "name": "Entry Custom Insight 4",
+      "description": "",
+      "aliases": [
+        "Entry Custom Insight 4",
+        "entry custom insight 4",
+        "entry-custom-insight-4",
+        "entry_custom_insight_4",
+        "entrycustominsight4",
+        "entryprop4"
+      ]
+    },
+    {
+      "id": "variables/entryprop5",
+      "name": "Entry Custom Insight 5",
+      "description": "",
+      "aliases": [
+        "Entry Custom Insight 5",
+        "entry custom insight 5",
+        "entry-custom-insight-5",
+        "entry_custom_insight_5",
+        "entrycustominsight5",
+        "entryprop5"
+      ]
+    },
+    {
+      "id": "variables/entryserver",
+      "name": "Entry Server",
+      "description": "",
+      "aliases": [
+        "Entry Server",
+        "entry server",
+        "entry-server",
+        "entry_server",
+        "entryserver"
+      ]
+    },
+    {
+      "id": "variables/entrysitesections",
+      "name": "Entry Site Section",
+      "description": "Lists the names of site sections on your site. For large sites, it is helpful to group pages into sections. This dimension is useful to see the top-viewed or top-performing site sections.",
+      "aliases": [
+        "Entry Site Section",
+        "entry site section",
+        "entry-site-section",
+        "entry_site_section",
+        "entrysitesection",
+        "entrysitesections"
+      ]
+    },
+    {
+      "id": "variables/evar1",
+      "name": "Internal Campaign",
+      "description": "",
+      "aliases": [
+        "Internal Campaign",
+        "evar1",
+        "internal campaign",
+        "internal-campaign",
+        "internal_campaign",
+        "internalcampaign"
+      ]
+    },
+    {
+      "id": "variables/evar2",
+      "name": "Internal Search Terms",
+      "description": "",
+      "aliases": [
+        "Internal Search Terms",
+        "evar2",
+        "internal search terms",
+        "internal-search-terms",
+        "internal_search_terms",
+        "internalsearchterms"
+      ]
+    },
+    {
+      "id": "variables/evar3",
+      "name": "Custom Conversion 3",
+      "description": "",
+      "aliases": [
+        "Custom Conversion 3",
+        "custom conversion 3",
+        "custom-conversion-3",
+        "custom_conversion_3",
+        "customconversion3",
+        "evar3"
+      ]
+    },
+    {
+      "id": "variables/evar4",
+      "name": "Custom Conversion 4",
+      "description": "",
+      "aliases": [
+        "Custom Conversion 4",
+        "custom conversion 4",
+        "custom-conversion-4",
+        "custom_conversion_4",
+        "customconversion4",
+        "evar4"
+      ]
+    },
+    {
+      "id": "variables/exitclickmapxy",
+      "name": "Exit Activity Map Scroll Reach",
+      "description": "",
+      "aliases": [
+        "Exit Activity Map Scroll Reach",
+        "exit activity map scroll reach",
+        "exit-activity-map-scroll-reach",
+        "exit_activity_map_scroll_reach",
+        "exitactivitymapscrollreach",
+        "exitclickmapxy"
+      ]
+    },
+    {
+      "id": "variables/exitlink",
+      "name": "Exit Link",
+      "description": "The names of links that leads visitors away from the site. This can help you understand which links are most popular that point to domains outside of your site.",
+      "aliases": [
+        "Exit Link",
+        "exit link",
+        "exit-link",
+        "exit_link",
+        "exitlink"
+      ]
+    },
+    {
+      "id": "variables/exitpage",
+      "name": "Exit Page",
+      "description": "The names of pages on your site. This can help you understand which pages on your site perform the best. This is one of the most commonly used dimensions.",
+      "aliases": [
+        "Exit Page",
+        "exit page",
+        "exit-page",
+        "exit_page",
+        "exitpage"
+      ]
+    },
+    {
+      "id": "variables/exitprop1",
+      "name": "Exit Custom Insight 1",
+      "description": "",
+      "aliases": [
+        "Exit Custom Insight 1",
+        "exit custom insight 1",
+        "exit-custom-insight-1",
+        "exit_custom_insight_1",
+        "exitcustominsight1",
+        "exitprop1"
+      ]
+    },
+    {
+      "id": "variables/exitprop2",
+      "name": "Exit Custom Insight 2",
+      "description": "",
+      "aliases": [
+        "Exit Custom Insight 2",
+        "exit custom insight 2",
+        "exit-custom-insight-2",
+        "exit_custom_insight_2",
+        "exitcustominsight2",
+        "exitprop2"
+      ]
+    },
+    {
+      "id": "variables/exitprop3",
+      "name": "Exit Custom Insight 3",
+      "description": "",
+      "aliases": [
+        "Exit Custom Insight 3",
+        "exit custom insight 3",
+        "exit-custom-insight-3",
+        "exit_custom_insight_3",
+        "exitcustominsight3",
+        "exitprop3"
+      ]
+    },
+    {
+      "id": "variables/exitprop4",
+      "name": "Exit Custom Insight 4",
+      "description": "",
+      "aliases": [
+        "Exit Custom Insight 4",
+        "exit custom insight 4",
+        "exit-custom-insight-4",
+        "exit_custom_insight_4",
+        "exitcustominsight4",
+        "exitprop4"
+      ]
+    },
+    {
+      "id": "variables/exitprop5",
+      "name": "Exit Custom Insight 5",
+      "description": "",
+      "aliases": [
+        "Exit Custom Insight 5",
+        "exit custom insight 5",
+        "exit-custom-insight-5",
+        "exit_custom_insight_5",
+        "exitcustominsight5",
+        "exitprop5"
+      ]
+    },
+    {
+      "id": "variables/exitserver",
+      "name": "Exit Server",
+      "description": "",
+      "aliases": [
+        "Exit Server",
+        "exit server",
+        "exit-server",
+        "exit_server",
+        "exitserver"
+      ]
+    },
+    {
+      "id": "variables/exitsitesections",
+      "name": "Exit Site Section",
+      "description": "Lists the names of site sections on your site. For large sites, it is helpful to group pages into sections. This dimension is useful to see the top-viewed or top-performing site sections.",
+      "aliases": [
+        "Exit Site Section",
+        "exit site section",
+        "exit-site-section",
+        "exit_site_section",
+        "exitsitesection",
+        "exitsitesections"
+      ]
+    },
+    {
+      "id": "variables/filtereddomain",
+      "name": "Domain",
+      "description": "",
+      "aliases": [
+        "Domain",
+        "domain",
+        "filtereddomain"
+      ]
+    },
+    {
+      "id": "variables/firsttouchchannel",
+      "name": "First Touch Channel",
+      "description": "The first marketing channel a visitor matches with during their engagement period. This can help you understand which marketing channels drive initial traffic to the site.",
+      "aliases": [
+        "First Touch Channel",
+        "first touch channel",
+        "first-touch-channel",
+        "first_touch_channel",
+        "firsttouchchannel"
+      ]
+    },
+    {
+      "id": "variables/firsttouchchanneldetail",
+      "name": "First Touch Channel Detail",
+      "description": "The first marketing channel a visitor matches with during their engagement period. This can help you understand what contributed to the hit matching a marketing channel.",
+      "aliases": [
+        "First Touch Channel Detail",
+        "first touch channel detail",
+        "first-touch-channel-detail",
+        "first_touch_channel_detail",
+        "firsttouchchanneldetail"
+      ]
+    },
+    {
+      "id": "variables/geocity",
+      "name": "Cities",
+      "description": "The geographic location of a visitor at the city level.",
+      "aliases": [
+        "Cities",
+        "cities",
+        "geocity"
+      ]
+    },
+    {
+      "id": "variables/geocitydw",
+      "name": "Geo Segmentation Cities",
+      "description": "",
+      "aliases": [
+        "Geo Segmentation Cities",
+        "geo segmentation cities",
+        "geo-segmentation-cities",
+        "geo_segmentation_cities",
+        "geocitydw",
+        "geosegmentationcities"
+      ]
+    },
+    {
+      "id": "variables/geocountry",
+      "name": "Countries",
+      "description": "The geographic location of a visitor at the country level.",
+      "aliases": [
+        "Countries",
+        "countries",
+        "geocountry"
+      ]
+    },
+    {
+      "id": "variables/geodma",
+      "name": "US DMA",
+      "description": "The geographic location of a visitor at the Designated Market Area (DMA) level.",
+      "aliases": [
+        "US DMA",
+        "geodma",
+        "us dma",
+        "us-dma",
+        "us_dma",
+        "usdma"
+      ]
+    },
+    {
+      "id": "variables/geolatitude",
+      "name": "Geo Latitude",
+      "description": "",
+      "aliases": [
+        "Geo Latitude",
+        "geo latitude",
+        "geo-latitude",
+        "geo_latitude",
+        "geolatitude"
+      ]
+    },
+    {
+      "id": "variables/geolongitude",
+      "name": "Geo Longitude",
+      "description": "",
+      "aliases": [
+        "Geo Longitude",
+        "geo longitude",
+        "geo-longitude",
+        "geo_longitude",
+        "geolongitude"
+      ]
+    },
+    {
+      "id": "variables/georegion",
+      "name": "Regions",
+      "description": "The geographic location of a visitor at the region level.",
+      "aliases": [
+        "Regions",
+        "georegion",
+        "regions"
+      ]
+    },
+    {
+      "id": "variables/geozip",
+      "name": "Geo Zip",
+      "description": "",
+      "aliases": [
+        "Geo Zip",
+        "geo zip",
+        "geo-zip",
+        "geo_zip",
+        "geozip"
+      ]
+    },
+    {
+      "id": "variables/hitdatetime",
+      "name": "Hit Datetime",
+      "description": "The date and time of a visitor's interaction with the site.",
+      "aliases": [
+        "Hit Datetime",
+        "hit datetime",
+        "hit-datetime",
+        "hit_datetime",
+        "hitdatetime"
+      ]
+    },
+    {
+      "id": "variables/hitdatetimeoffset",
+      "name": "Hit Date Time Offset",
+      "description": "",
+      "aliases": [
+        "Hit Date Time Offset",
+        "hit date time offset",
+        "hit-date-time-offset",
+        "hit_date_time_offset",
+        "hitdatetimeoffset"
+      ]
+    },
+    {
+      "id": "variables/hitdepth",
+      "name": "Hit Depth",
+      "description": "How far into a visit a given hit is. This can help you understand how long it takes for visitors to perform actions on the site.",
+      "aliases": [
+        "Hit Depth",
+        "hit depth",
+        "hit-depth",
+        "hit_depth",
+        "hitdepth"
+      ]
+    },
+    {
+      "id": "variables/hittimegmt",
+      "name": "Hit Time UTC",
+      "description": "",
+      "aliases": [
+        "Hit Time UTC",
+        "hit time utc",
+        "hit-time-utc",
+        "hit_time_utc",
+        "hittimegmt",
+        "hittimeutc"
+      ]
+    },
+    {
+      "id": "variables/hittimegmtfirsthit",
+      "name": "First Hit Time UTC",
+      "description": "",
+      "aliases": [
+        "First Hit Time UTC",
+        "first hit time utc",
+        "first-hit-time-utc",
+        "first_hit_time_utc",
+        "firsthittimeutc",
+        "hittimegmtfirsthit"
+      ]
+    },
+    {
+      "id": "variables/hittype",
+      "name": "Hit Type",
+      "description": "Shows whether a mobile app was in the foreground or background when the hit was sent to Adobe data collection servers.",
+      "aliases": [
+        "Hit Type",
+        "hit type",
+        "hit-type",
+        "hit_type",
+        "hittype"
+      ]
+    },
+    {
+      "id": "variables/homepage",
+      "name": "Home Page",
+      "description": "",
+      "aliases": [
+        "Home Page",
+        "home page",
+        "home-page",
+        "home_page",
+        "homepage"
+      ]
+    },
+    {
+      "id": "variables/ipaddress",
+      "name": "IP Address",
+      "description": "",
+      "aliases": [
+        "IP Address",
+        "ip address",
+        "ip-address",
+        "ip_address",
+        "ipaddress"
+      ]
+    },
+    {
+      "id": "variables/ipaddress2",
+      "name": "IP Address 2",
+      "description": "",
+      "aliases": [
+        "IP Address 2",
+        "ip address 2",
+        "ip-address-2",
+        "ip_address_2",
+        "ipaddress2"
+      ]
+    },
+    {
+      "id": "variables/javaenabled",
+      "name": "Java Enabled",
+      "description": "Determines if a visitor's browser at the time of a visit has Java enabled. This is helpful if you want to introduce Java-based functionality on the site but you aren't sure how many visitors already have Java enabled.",
+      "aliases": [
+        "Java Enabled",
+        "java enabled",
+        "java-enabled",
+        "java_enabled",
+        "javaenabled"
+      ]
+    },
+    {
+      "id": "variables/javascriptsupport",
+      "name": "Javascript Support",
+      "description": "",
+      "aliases": [
+        "Javascript Support",
+        "javascript support",
+        "javascript-support",
+        "javascript_support",
+        "javascriptsupport"
+      ]
+    },
+    {
+      "id": "variables/javascriptversion",
+      "name": "Javascript Version",
+      "description": "",
+      "aliases": [
+        "Javascript Version",
+        "javascript version",
+        "javascript-version",
+        "javascript_version",
+        "javascriptversion"
+      ]
+    },
+    {
+      "id": "variables/language",
+      "name": "Language",
+      "description": "A visitor's preferred language as defined in the browser. This can aid in localization efforts by helping you understand the languages most preferred by visitors.",
+      "aliases": [
+        "Language",
+        "language"
+      ]
+    },
+    {
+      "id": "variables/lasttouchchannel",
+      "name": "Last Touch Channel",
+      "description": "The most recent marketing channel a visitor matches with during that visitor's engagement period. This can help you understand which marketing channels drive traffic to your site that result in conversions.",
+      "aliases": [
+        "Last Touch Channel",
+        "last touch channel",
+        "last-touch-channel",
+        "last_touch_channel",
+        "lasttouchchannel"
+      ]
+    },
+    {
+      "id": "variables/lasttouchchanneldetail",
+      "name": "Last Touch Channel Detail",
+      "description": "Details about the most recent marketing channel a visitor matches with during that visitor's engagement period. This can help you understand what contributed to the hit matching a marketing channel.",
+      "aliases": [
+        "Last Touch Channel Detail",
+        "last touch channel detail",
+        "last-touch-channel-detail",
+        "last_touch_channel_detail",
+        "lasttouchchanneldetail"
+      ]
+    },
+    {
+      "id": "variables/latitude",
+      "name": "Latitude",
+      "description": "",
+      "aliases": [
+        "Latitude",
+        "latitude"
+      ]
+    },
+    {
+      "id": "variables/legacystate",
+      "name": "Visitor State",
+      "description": "",
+      "aliases": [
+        "Visitor State",
+        "legacystate",
+        "visitor state",
+        "visitor-state",
+        "visitor_state",
+        "visitorstate"
+      ]
+    },
+    {
+      "id": "variables/longitude",
+      "name": "Longitude",
+      "description": "",
+      "aliases": [
+        "Longitude",
+        "longitude"
+      ]
+    },
+    {
+      "id": "variables/marketingchannel",
+      "name": "Marketing Channel",
+      "description": "The most recent marketing channel a visitor matches with during that visitor's engagement period. This can help you understand which marketing channels drive traffic to your site that result in conversions. This functions identically to the 'Last Touch Channel.'",
+      "aliases": [
+        "Marketing Channel",
+        "marketing channel",
+        "marketing-channel",
+        "marketing_channel",
+        "marketingchannel"
+      ]
+    },
+    {
+      "id": "variables/marketingchanneldetail",
+      "name": "Marketing Channel Detail",
+      "description": "Details about the most recent marketing channel a visitor matches with during that visitor's engagement period. This can help you understand what contributed to the hit matching a marketing channel. This functions identically to the 'Last Touch Channel Detail.'",
+      "aliases": [
+        "Marketing Channel Detail",
+        "marketing channel detail",
+        "marketing-channel-detail",
+        "marketing_channel_detail",
+        "marketingchanneldetail"
+      ]
+    },
+    {
+      "id": "variables/mcvisid",
+      "name": "Experience Cloud Visitor ID",
+      "description": "",
+      "aliases": [
+        "Experience Cloud Visitor ID",
+        "experience cloud visitor id",
+        "experience-cloud-visitor-id",
+        "experience_cloud_visitor_id",
+        "experiencecloudvisitorid",
+        "mcvisid"
+      ]
+    },
+    {
+      "id": "variables/mobileaudiosupport",
+      "name": "Mobile Audio Support",
+      "description": "The file formats the device can play.",
+      "aliases": [
+        "Mobile Audio Support",
+        "mobile audio support",
+        "mobile-audio-support",
+        "mobile_audio_support",
+        "mobileaudiosupport"
+      ]
+    },
+    {
+      "id": "variables/mobilebookmarklength",
+      "name": "Mobile Max Bookmark Length",
+      "description": "The maximum number of bytes that the mobile device supports in bookmarked URLs. Recent devices typically do not have a limit.",
+      "aliases": [
+        "Mobile Max Bookmark Length",
+        "mobile max bookmark length",
+        "mobile-max-bookmark-length",
+        "mobile_max_bookmark_length",
+        "mobilebookmarklength",
+        "mobilemaxbookmarklength"
+      ]
+    },
+    {
+      "id": "variables/mobilecarrier",
+      "name": "Mobile Carrier",
+      "description": "The telecommunications company that provides cellular network connectivity to a mobile device.",
+      "aliases": [
+        "Mobile Carrier",
+        "mobile carrier",
+        "mobile-carrier",
+        "mobile_carrier",
+        "mobilecarrier"
+      ]
+    },
+    {
+      "id": "variables/mobilecolordepth",
+      "name": "Mobile Color Depth",
+      "description": "The color depth of the mobile device, in bits.",
+      "aliases": [
+        "Mobile Color Depth",
+        "mobile color depth",
+        "mobile-color-depth",
+        "mobile_color_depth",
+        "mobilecolordepth"
+      ]
+    },
+    {
+      "id": "variables/mobilecookiesupport",
+      "name": "Mobile Cookie Support",
+      "description": "The ability of a mobile device to store and manage browser cookies.",
+      "aliases": [
+        "Mobile Cookie Support",
+        "mobile cookie support",
+        "mobile-cookie-support",
+        "mobile_cookie_support",
+        "mobilecookiesupport"
+      ]
+    },
+    {
+      "id": "variables/mobiledevicename",
+      "name": "Mobile Device",
+      "description": "The model of the mobile device used to access the site.",
+      "aliases": [
+        "Mobile Device",
+        "mobile device",
+        "mobile-device",
+        "mobile_device",
+        "mobiledevice",
+        "mobiledevicename"
+      ]
+    },
+    {
+      "id": "variables/mobiledevicenumber",
+      "name": "Mobile Device Number",
+      "description": "Shows if the mobile device transmits its number.",
+      "aliases": [
+        "Mobile Device Number",
+        "mobile device number",
+        "mobile-device-number",
+        "mobile_device_number",
+        "mobiledevicenumber"
+      ]
+    },
+    {
+      "id": "variables/mobiledevicetype",
+      "name": "Mobile Device Type",
+      "description": "The type of mobile device used to access the site (such as phone, tablet, or television).",
+      "aliases": [
+        "Mobile Device Type",
+        "mobile device type",
+        "mobile-device-type",
+        "mobile_device_type",
+        "mobiledevicetype"
+      ]
+    },
+    {
+      "id": "variables/mobiledrm",
+      "name": "Mobile DRM",
+      "description": "The type of DRM the mobile device supports.",
+      "aliases": [
+        "Mobile DRM",
+        "mobile drm",
+        "mobile-drm",
+        "mobile_drm",
+        "mobiledrm"
+      ]
+    },
+    {
+      "id": "variables/mobileemaillength",
+      "name": "Mobile Max Email Length",
+      "description": "The maximum number of bytes that the mobile device supports in an email. Recent devices typically do not have a limit.",
+      "aliases": [
+        "Mobile Max Email Length",
+        "mobile max email length",
+        "mobile-max-email-length",
+        "mobile_max_email_length",
+        "mobileemaillength",
+        "mobilemaxemaillength"
+      ]
+    },
+    {
+      "id": "variables/mobileimagesupport",
+      "name": "Mobile Image Support",
+      "description": "The ability of mobile devices that access the site to display and render images on the site.",
+      "aliases": [
+        "Mobile Image Support",
+        "mobile image support",
+        "mobile-image-support",
+        "mobile_image_support",
+        "mobileimagesupport"
+      ]
+    },
+    {
+      "id": "variables/mobileinformationservices",
+      "name": "Mobile Information Services",
+      "description": "The types of news services supported by the device. Recent devices typically do not report this information.",
+      "aliases": [
+        "Mobile Information Services",
+        "mobile information services",
+        "mobile-information-services",
+        "mobile_information_services",
+        "mobileinformationservices"
+      ]
+    },
+    {
+      "id": "variables/mobilejavavm",
+      "name": "Mobile Java VM",
+      "description": "The versions of Java that the device supports.",
+      "aliases": [
+        "Mobile Java VM",
+        "mobile java vm",
+        "mobile-java-vm",
+        "mobile_java_vm",
+        "mobilejavavm"
+      ]
+    },
+    {
+      "id": "variables/mobilemaildecoration",
+      "name": "Mobile Mail Decoration",
+      "description": "Determines if the device supports Decomail, a feature once popular on Japanese devices.",
+      "aliases": [
+        "Mobile Mail Decoration",
+        "mobile mail decoration",
+        "mobile-mail-decoration",
+        "mobile_mail_decoration",
+        "mobilemaildecoration"
+      ]
+    },
+    {
+      "id": "variables/mobilemanufacturer",
+      "name": "Mobile Manufacturer",
+      "description": "The manufacturer of the mobile device used to access the site (such as Apple or Samsung).",
+      "aliases": [
+        "Mobile Manufacturer",
+        "mobile manufacturer",
+        "mobile-manufacturer",
+        "mobile_manufacturer",
+        "mobilemanufacturer"
+      ]
+    },
+    {
+      "id": "variables/mobilenetprotocols",
+      "name": "Mobile Net Protocols",
+      "description": "The communication protocols used by mobile devices to access the site (such as Edge, GPRS, UMTS, and LTE).",
+      "aliases": [
+        "Mobile Net Protocols",
+        "mobile net protocols",
+        "mobile-net-protocols",
+        "mobile_net_protocols",
+        "mobilenetprotocols"
+      ]
+    },
+    {
+      "id": "variables/mobileos",
+      "name": "Mobile Operating System (deprecated)",
+      "description": "This dimension is deprecated. Use 'Operating system' instead.",
+      "aliases": [
+        "Mobile Operating System (deprecated)",
+        "mobile operating system (deprecated)",
+        "mobile-operating-system-(deprecated)",
+        "mobile_operating_system_(deprecated)",
+        "mobileoperatingsystem(deprecated)",
+        "mobileos"
+      ]
+    },
+    {
+      "id": "variables/mobilepushtotalk",
+      "name": "Mobile Push To Talk",
+      "description": "Determines if the device supports PTT (Push to talk), which allows the mobile device to behave similar to a two-way radio. Recent devices typically do not report this feature.",
+      "aliases": [
+        "Mobile Push To Talk",
+        "mobile push to talk",
+        "mobile-push-to-talk",
+        "mobile_push_to_talk",
+        "mobilepushtotalk"
+      ]
+    },
+    {
+      "id": "variables/mobilescreenheight",
+      "name": "Mobile Screen Height",
+      "description": "The height of the screen, in pixels.",
+      "aliases": [
+        "Mobile Screen Height",
+        "mobile screen height",
+        "mobile-screen-height",
+        "mobile_screen_height",
+        "mobilescreenheight"
+      ]
+    },
+    {
+      "id": "variables/mobilescreensize",
+      "name": "Mobile Screen Size",
+      "description": "The full dimensions of the mobile device, in pixels.",
+      "aliases": [
+        "Mobile Screen Size",
+        "mobile screen size",
+        "mobile-screen-size",
+        "mobile_screen_size",
+        "mobilescreensize"
+      ]
+    },
+    {
+      "id": "variables/mobilescreenwidth",
+      "name": "Mobile Screen Width",
+      "description": "The width of the screen, in pixels.",
+      "aliases": [
+        "Mobile Screen Width",
+        "mobile screen width",
+        "mobile-screen-width",
+        "mobile_screen_width",
+        "mobilescreenwidth"
+      ]
+    },
+    {
+      "id": "variables/mobileurllength",
+      "name": "Mobile Max Browser URL Length",
+      "description": "The maximum number of characters that can be included in the site URL when accessed from a mobile browser.",
+      "aliases": [
+        "Mobile Max Browser URL Length",
+        "mobile max browser url length",
+        "mobile-max-browser-url-length",
+        "mobile_max_browser_url_length",
+        "mobilemaxbrowserurllength",
+        "mobileurllength"
+      ]
+    },
+    {
+      "id": "variables/mobilevideosupport",
+      "name": "Mobile Video Support",
+      "description": "The video file formats and codecs that the mobile device supports.",
+      "aliases": [
+        "Mobile Video Support",
+        "mobile video support",
+        "mobile-video-support",
+        "mobile_video_support",
+        "mobilevideosupport"
+      ]
+    },
+    {
+      "id": "variables/monitorresolution",
+      "name": "Monitor Resolution",
+      "description": "The height and width of the active display in pixels. This can help you prioritize content to make it visible to users without scrolling.",
+      "aliases": [
+        "Monitor Resolution",
+        "monitor resolution",
+        "monitor-resolution",
+        "monitor_resolution",
+        "monitorresolution"
+      ]
+    },
+    {
+      "id": "variables/monthlyuniquecustomers",
+      "name": "Monthly Unique Customers",
+      "description": "The number of unique visitors per month.",
+      "aliases": [
+        "Monthly Unique Customers",
+        "monthly unique customers",
+        "monthly-unique-customers",
+        "monthly_unique_customers",
+        "monthlyuniquecustomers"
+      ]
+    },
+    {
+      "id": "variables/newvisit",
+      "name": "New Visit",
+      "description": "",
+      "aliases": [
+        "New Visit",
+        "new visit",
+        "new-visit",
+        "new_visit",
+        "newvisit"
+      ]
+    },
+    {
+      "id": "variables/nextpage",
+      "name": "Next Page",
+      "description": "",
+      "aliases": [
+        "Next Page",
+        "next page",
+        "next-page",
+        "next_page",
+        "nextpage"
+      ]
+    },
+    {
+      "id": "variables/operatingsystem",
+      "name": "Operating Systems",
+      "description": "Provides data on the various desktop and mobile operating systems used by visitors to the site (includes operating system versions). This can help you understand which operating systems are most common if you have features that are supported only on certain operating systems.",
+      "aliases": [
+        "Operating Systems",
+        "operating systems",
+        "operating-systems",
+        "operating_systems",
+        "operatingsystem",
+        "operatingsystems"
+      ]
+    },
+    {
+      "id": "variables/operatingsystemgroup",
+      "name": "Operating System Types",
+      "description": "Provides data on the various desktop and mobile operating systems used by visitors to the site, regardless of the operating system version. This can help you understand which operating systems are most common if you have features that are supported only on certain operating systems.",
+      "aliases": [
+        "Operating System Types",
+        "operating system types",
+        "operating-system-types",
+        "operating_system_types",
+        "operatingsystemgroup",
+        "operatingsystemtypes"
+      ]
+    },
+    {
+      "id": "variables/optoutreason",
+      "name": "Tracking Opt-out Reason",
+      "description": "This dimension acts as a preview to show you data that would be excluded if you enabled Privacy Settings. This can help you determine if your implementation would be negatively impacted if you enabled Privacy Settings under Report Suite Settings.",
+      "aliases": [
+        "Tracking Opt-out Reason",
+        "optoutreason",
+        "tracking opt-out reason",
+        "tracking-opt-out-reason",
+        "tracking_opt-out_reason",
+        "trackingopt-outreason"
+      ]
+    },
+    {
+      "id": "variables/page",
+      "name": "Page",
+      "description": "The names of pages on your site. This can help you understand which pages on your site perform the best. This is one of the most commonly used dimensions.",
+      "aliases": [
+        "Page",
+        "page"
+      ]
+    },
+    {
+      "id": "variables/pageevent",
+      "name": "Page Event (Link Tracking)",
+      "description": "",
+      "aliases": [
+        "Page Event (Link Tracking)",
+        "page event (link tracking)",
+        "page-event-(link-tracking)",
+        "page_event_(link_tracking)",
+        "pageevent",
+        "pageevent(linktracking)"
+      ]
+    },
+    {
+      "id": "variables/pageeventmedia",
+      "name": "Page Event Media (Link Tracking)",
+      "description": "",
+      "aliases": [
+        "Page Event Media (Link Tracking)",
+        "page event media (link tracking)",
+        "page-event-media-(link-tracking)",
+        "page_event_media_(link_tracking)",
+        "pageeventmedia",
+        "pageeventmedia(linktracking)"
+      ]
+    },
+    {
+      "id": "variables/pageeventvar1",
+      "name": "Page Event Var1 (Link Tracking)",
+      "description": "",
+      "aliases": [
+        "Page Event Var1 (Link Tracking)",
+        "page event var1 (link tracking)",
+        "page-event-var1-(link-tracking)",
+        "page_event_var1_(link_tracking)",
+        "pageeventvar1",
+        "pageeventvar1(linktracking)"
+      ]
+    },
+    {
+      "id": "variables/pageeventvar2",
+      "name": "Page Event Var2 (Link Tracking)",
+      "description": "",
+      "aliases": [
+        "Page Event Var2 (Link Tracking)",
+        "page event var2 (link tracking)",
+        "page-event-var2-(link-tracking)",
+        "page_event_var2_(link_tracking)",
+        "pageeventvar2",
+        "pageeventvar2(linktracking)"
+      ]
+    },
+    {
+      "id": "variables/pageeventvar3",
+      "name": "Page Event Var3 (Link Tracking)",
+      "description": "",
+      "aliases": [
+        "Page Event Var3 (Link Tracking)",
+        "page event var3 (link tracking)",
+        "page-event-var3-(link-tracking)",
+        "page_event_var3_(link_tracking)",
+        "pageeventvar3",
+        "pageeventvar3(linktracking)"
+      ]
+    },
+    {
+      "id": "variables/pagenamenourl",
+      "name": "Page Name No URL",
+      "description": "",
+      "aliases": [
+        "Page Name No URL",
+        "page name no url",
+        "page-name-no-url",
+        "page_name_no_url",
+        "pagenamenourl"
+      ]
+    },
+    {
+      "id": "variables/pagesnotfound",
+      "name": "Pages Not Found",
+      "description": "Shows URLs that contained an error. This can help you lower the number of errors that visitor get on your site.",
+      "aliases": [
+        "Pages Not Found",
+        "pages not found",
+        "pages-not-found",
+        "pages_not_found",
+        "pagesnotfound"
+      ]
+    },
+    {
+      "id": "variables/pagetimeseconds",
+      "name": "Time Spent on Page - Granular",
+      "description": "The amount of time a visitor spends on the page. This can help you understand how long visitors interact with a given metric on the site.",
+      "aliases": [
+        "Time Spent on Page - Granular",
+        "pagetimeseconds",
+        "time spent on page - granular",
+        "time-spent-on-page---granular",
+        "time_spent_on_page_-_granular",
+        "timespentonpage-granular"
+      ]
+    },
+    {
+      "id": "variables/pagetypeerror",
+      "name": "Page Type Error",
+      "description": "",
+      "aliases": [
+        "Page Type Error",
+        "page type error",
+        "page-type-error",
+        "page_type_error",
+        "pagetypeerror"
+      ]
+    },
+    {
+      "id": "variables/pageurl",
+      "name": "Page URL",
+      "description": "The URLs on the site.",
+      "aliases": [
+        "Page URL",
+        "page url",
+        "page-url",
+        "page_url",
+        "pageurl"
+      ]
+    },
+    {
+      "id": "variables/pageurlfirsthit",
+      "name": "Original Entry Page URL",
+      "description": "",
+      "aliases": [
+        "Original Entry Page URL",
+        "original entry page url",
+        "original-entry-page-url",
+        "original_entry_page_url",
+        "originalentrypageurl",
+        "pageurlfirsthit"
+      ]
+    },
+    {
+      "id": "variables/pageurlvisitstart",
+      "name": "Visit Start Page URL",
+      "description": "",
+      "aliases": [
+        "Visit Start Page URL",
+        "pageurlvisitstart",
+        "visit start page url",
+        "visit-start-page-url",
+        "visit_start_page_url",
+        "visitstartpageurl"
+      ]
+    },
+    {
+      "id": "variables/paidsearch",
+      "name": "Paid Search",
+      "description": "Compares any metric between paid search and natural search. All other hits outside search engines are omitted. This can help you understand how your paid search efforts compare with organic search.",
+      "aliases": [
+        "Paid Search",
+        "paid search",
+        "paid-search",
+        "paid_search",
+        "paidsearch"
+      ]
+    },
+    {
+      "id": "variables/partnerplugins",
+      "name": "Partner Plugins lea",
+      "description": "",
+      "aliases": [
+        "Partner Plugins lea",
+        "partner plugins lea",
+        "partner-plugins-lea",
+        "partner_plugins_lea",
+        "partnerplugins",
+        "partnerpluginslea"
+      ]
+    },
+    {
+      "id": "variables/pathlength",
+      "name": "Visit Depth",
+      "description": "",
+      "aliases": [
+        "Visit Depth",
+        "pathlength",
+        "visit depth",
+        "visit-depth",
+        "visit_depth",
+        "visitdepth"
+      ]
+    },
+    {
+      "id": "variables/persistentcookie",
+      "name": "Persistent Cookie Support",
+      "description": "Shows if the hit used a visitor identifier that originated from a persistent source. The most common persistent source is from a cookie, but it can also use mobile headers and other sources.",
+      "aliases": [
+        "Persistent Cookie Support",
+        "persistent cookie support",
+        "persistent-cookie-support",
+        "persistent_cookie_support",
+        "persistentcookie",
+        "persistentcookiesupport"
+      ]
+    },
+    {
+      "id": "variables/plugin",
+      "name": "Plugin Support",
+      "description": "",
+      "aliases": [
+        "Plugin Support",
+        "plugin",
+        "plugin support",
+        "plugin-support",
+        "plugin_support",
+        "pluginsupport"
+      ]
+    },
+    {
+      "id": "variables/preloaded",
+      "name": "Pre Loaded",
+      "description": "",
+      "aliases": [
+        "Pre Loaded",
+        "pre loaded",
+        "pre-loaded",
+        "pre_loaded",
+        "preloaded"
+      ]
+    },
+    {
+      "id": "variables/previouspage",
+      "name": "Previous Page",
+      "description": "",
+      "aliases": [
+        "Previous Page",
+        "previous page",
+        "previous-page",
+        "previous_page",
+        "previouspage"
+      ]
+    },
+    {
+      "id": "variables/product",
+      "name": "Product",
+      "description": "Shows the name of the product in the hit. If your implementation uses the products variable, it can help you understand metrics about your products, such as top sellers or most viewed.",
+      "aliases": [
+        "Product",
+        "product"
+      ]
+    },
+    {
+      "id": "variables/prop1",
+      "name": "Custom Insight 1",
+      "description": "",
+      "aliases": [
+        "Custom Insight 1",
+        "custom insight 1",
+        "custom-insight-1",
+        "custom_insight_1",
+        "custominsight1",
+        "prop1"
+      ]
+    },
+    {
+      "id": "variables/prop2",
+      "name": "Custom Insight 2",
+      "description": "",
+      "aliases": [
+        "Custom Insight 2",
+        "custom insight 2",
+        "custom-insight-2",
+        "custom_insight_2",
+        "custominsight2",
+        "prop2"
+      ]
+    },
+    {
+      "id": "variables/prop3",
+      "name": "Custom Insight 3",
+      "description": "",
+      "aliases": [
+        "Custom Insight 3",
+        "custom insight 3",
+        "custom-insight-3",
+        "custom_insight_3",
+        "custominsight3",
+        "prop3"
+      ]
+    },
+    {
+      "id": "variables/prop4",
+      "name": "Custom Insight 4",
+      "description": "",
+      "aliases": [
+        "Custom Insight 4",
+        "custom insight 4",
+        "custom-insight-4",
+        "custom_insight_4",
+        "custominsight4",
+        "prop4"
+      ]
+    },
+    {
+      "id": "variables/prop5",
+      "name": "Custom Insight 5",
+      "description": "",
+      "aliases": [
+        "Custom Insight 5",
+        "custom insight 5",
+        "custom-insight-5",
+        "custom_insight_5",
+        "custominsight5",
+        "prop5"
+      ]
+    },
+    {
+      "id": "variables/purchaseid",
+      "name": "Purchase ID",
+      "description": "",
+      "aliases": [
+        "Purchase ID",
+        "purchase id",
+        "purchase-id",
+        "purchase_id",
+        "purchaseid"
+      ]
+    },
+    {
+      "id": "variables/quarterlyuniquecustomers",
+      "name": "Quarterly Unique Customers",
+      "description": "The number of unique visitors per quarter.",
+      "aliases": [
+        "Quarterly Unique Customers",
+        "quarterly unique customers",
+        "quarterly-unique-customers",
+        "quarterly_unique_customers",
+        "quarterlyuniquecustomers"
+      ]
+    },
+    {
+      "id": "variables/referrer",
+      "name": "Referrer",
+      "description": "The website or source that a visitor used to arrive at the site. This can help you understand which specific URLs drive the most traffic to your site.",
+      "aliases": [
+        "Referrer",
+        "referrer"
+      ]
+    },
+    {
+      "id": "variables/referrerfirsthit",
+      "name": "Original Referrer",
+      "description": "",
+      "aliases": [
+        "Original Referrer",
+        "original referrer",
+        "original-referrer",
+        "original_referrer",
+        "originalreferrer",
+        "referrerfirsthit"
+      ]
+    },
+    {
+      "id": "variables/referrertype",
+      "name": "Referrer Type",
+      "description": "The generic channels that a visitor used to arrive at the site (such as a search engine or another website).",
+      "aliases": [
+        "Referrer Type",
+        "referrer type",
+        "referrer-type",
+        "referrer_type",
+        "referrertype"
+      ]
+    },
+    {
+      "id": "variables/referrertypefirsthit",
+      "name": "Original Referrer Type",
+      "description": "",
+      "aliases": [
+        "Original Referrer Type",
+        "original referrer type",
+        "original-referrer-type",
+        "original_referrer_type",
+        "originalreferrertype",
+        "referrertypefirsthit"
+      ]
+    },
+    {
+      "id": "variables/referrertypevisit",
+      "name": "Referrer Type (Visit)",
+      "description": "",
+      "aliases": [
+        "Referrer Type (Visit)",
+        "referrer type (visit)",
+        "referrer-type-(visit)",
+        "referrer_type_(visit)",
+        "referrertype(visit)",
+        "referrertypevisit"
+      ]
+    },
+    {
+      "id": "variables/referrervisit",
+      "name": "Referrer (Visit)",
+      "description": "",
+      "aliases": [
+        "Referrer (Visit)",
+        "referrer (visit)",
+        "referrer(visit)",
+        "referrer-(visit)",
+        "referrer_(visit)",
+        "referrervisit"
+      ]
+    },
+    {
+      "id": "variables/referringdomain",
+      "name": "Referring Domain",
+      "description": "The domain of the website that a visitor used to arrive at the site. This can help you understand which third-party sites drive the most traffic to yours.",
+      "aliases": [
+        "Referring Domain",
+        "referring domain",
+        "referring-domain",
+        "referring_domain",
+        "referringdomain"
+      ]
+    },
+    {
+      "id": "variables/referringdomainoriginal",
+      "name": "Original Referring Domain",
+      "description": "",
+      "aliases": [
+        "Original Referring Domain",
+        "original referring domain",
+        "original-referring-domain",
+        "original_referring_domain",
+        "originalreferringdomain",
+        "referringdomainoriginal"
+      ]
+    },
+    {
+      "id": "variables/referringdomainvisit",
+      "name": "Referring Domain (Visit)",
+      "description": "",
+      "aliases": [
+        "Referring Domain (Visit)",
+        "referring domain (visit)",
+        "referring-domain-(visit)",
+        "referring_domain_(visit)",
+        "referringdomain(visit)",
+        "referringdomainvisit"
+      ]
+    },
+    {
+      "id": "variables/returnfrequency",
+      "name": "Return Frequency",
+      "description": "Shows the time between visits from returning visitors. When a visitor returns to your site, it looks at the previous visit's timing and categorizes the current hit accordingly. This can help you gauge your site's appeal and track the impact of your content and promotions over time.",
+      "aliases": [
+        "Return Frequency",
+        "return frequency",
+        "return-frequency",
+        "return_frequency",
+        "returnfrequency"
+      ]
+    },
+    {
+      "id": "variables/rsid",
+      "name": "Report Suite ID",
+      "description": "",
+      "aliases": [
+        "Report Suite ID",
+        "report suite id",
+        "report-suite-id",
+        "report_suite_id",
+        "reportsuiteid",
+        "rsid"
+      ]
+    },
+    {
+      "id": "variables/searchengine",
+      "name": "Search Engine",
+      "description": "The search engine used to arrive at the site through a paid or natural (unpaid) search link.",
+      "aliases": [
+        "Search Engine",
+        "search engine",
+        "search-engine",
+        "search_engine",
+        "searchengine"
+      ]
+    },
+    {
+      "id": "variables/searchenginekeyword",
+      "name": "Search Keyword",
+      "description": "The words or phrases used when entering the site through a paid or natural (unpaid) search link.",
+      "aliases": [
+        "Search Keyword",
+        "search keyword",
+        "search-keyword",
+        "search_keyword",
+        "searchenginekeyword",
+        "searchkeyword"
+      ]
+    },
+    {
+      "id": "variables/searchenginekeywordvisit",
+      "name": "Search Keyword (Visit)",
+      "description": "",
+      "aliases": [
+        "Search Keyword (Visit)",
+        "search keyword (visit)",
+        "search-keyword-(visit)",
+        "search_keyword_(visit)",
+        "searchenginekeywordvisit",
+        "searchkeyword(visit)"
+      ]
+    },
+    {
+      "id": "variables/searchenginenatural",
+      "name": "Search Engine - Natural",
+      "description": "The search engine used when entering the site through an natural (unpaid) search link.",
+      "aliases": [
+        "Search Engine - Natural",
+        "search engine - natural",
+        "search-engine---natural",
+        "search_engine_-_natural",
+        "searchengine-natural",
+        "searchenginenatural"
+      ]
+    },
+    {
+      "id": "variables/searchenginenaturalkeyword",
+      "name": "Search Keyword - Natural",
+      "description": "The words or phrases used when entering the site through a natural (unpaid) search link.",
+      "aliases": [
+        "Search Keyword - Natural",
+        "search keyword - natural",
+        "search-keyword---natural",
+        "search_keyword_-_natural",
+        "searchenginenaturalkeyword",
+        "searchkeyword-natural"
+      ]
+    },
+    {
+      "id": "variables/searchenginepagerank",
+      "name": "All Search Page Rank",
+      "description": "The page of search results a visitor clicked through to your site. For example, if your site appears on the second page of a search engine's search results, the dimension item for this variable is \"Search Page 2\".",
+      "aliases": [
+        "All Search Page Rank",
+        "all search page rank",
+        "all-search-page-rank",
+        "all_search_page_rank",
+        "allsearchpagerank",
+        "searchenginepagerank"
+      ]
+    },
+    {
+      "id": "variables/searchenginepaid",
+      "name": "Search Engine - Paid",
+      "description": "The search engine used when entering the site through a paid search link.",
+      "aliases": [
+        "Search Engine - Paid",
+        "search engine - paid",
+        "search-engine---paid",
+        "search_engine_-_paid",
+        "searchengine-paid",
+        "searchenginepaid"
+      ]
+    },
+    {
+      "id": "variables/searchenginepaidkeyword",
+      "name": "Search Keyword - Paid",
+      "description": "The words or phrases used when entering the site through a paid search link.",
+      "aliases": [
+        "Search Keyword - Paid",
+        "search keyword - paid",
+        "search-keyword---paid",
+        "search_keyword_-_paid",
+        "searchenginepaidkeyword",
+        "searchkeyword-paid"
+      ]
+    },
+    {
+      "id": "variables/searchenginevisit",
+      "name": "Search Engine (Visit)",
+      "description": "",
+      "aliases": [
+        "Search Engine (Visit)",
+        "search engine (visit)",
+        "search-engine-(visit)",
+        "search_engine_(visit)",
+        "searchengine(visit)",
+        "searchenginevisit"
+      ]
+    },
+    {
+      "id": "variables/server",
+      "name": "Server",
+      "description": "",
+      "aliases": [
+        "Server",
+        "server"
+      ]
+    },
+    {
+      "id": "variables/service",
+      "name": "Service",
+      "description": "",
+      "aliases": [
+        "Service",
+        "service"
+      ]
+    },
+    {
+      "id": "variables/singlepagevisits",
+      "name": "Single Page Visits",
+      "description": "Occurrences when visitors leave the site after viewing only a single page.",
+      "aliases": [
+        "Single Page Visits",
+        "single page visits",
+        "single-page-visits",
+        "single_page_visits",
+        "singlepagevisits"
+      ]
+    },
+    {
+      "id": "variables/sitesections",
+      "name": "Site Section",
+      "description": "Lists the names of site sections on your site. For large sites, it is helpful to group pages into sections. This dimension is useful to see the top-viewed or top-performing site sections.",
+      "aliases": [
+        "Site Section",
+        "site section",
+        "site-section",
+        "site_section",
+        "sitesection",
+        "sitesections"
+      ]
+    },
+    {
+      "id": "variables/sitetime",
+      "name": "Time Spent per Visit - Granular",
+      "description": "",
+      "aliases": [
+        "Time Spent per Visit - Granular",
+        "sitetime",
+        "time spent per visit - granular",
+        "time-spent-per-visit---granular",
+        "time_spent_per_visit_-_granular",
+        "timespentpervisit-granular"
+      ]
+    },
+    {
+      "id": "variables/sslhit",
+      "name": "SSL Hit",
+      "description": "",
+      "aliases": [
+        "SSL Hit",
+        "ssl hit",
+        "ssl-hit",
+        "ssl_hit",
+        "sslhit"
+      ]
+    },
+    {
+      "id": "variables/startnewvisit",
+      "name": "Start New Visit",
+      "description": "",
+      "aliases": [
+        "Start New Visit",
+        "start new visit",
+        "start-new-visit",
+        "start_new_visit",
+        "startnewvisit"
+      ]
+    },
+    {
+      "id": "variables/state",
+      "name": "US States",
+      "description": "",
+      "aliases": [
+        "US States",
+        "state",
+        "us states",
+        "us-states",
+        "us_states",
+        "usstates"
+      ]
+    },
+    {
+      "id": "variables/targetraw",
+      "name": "Analytics for Target",
+      "description": "",
+      "aliases": [
+        "Analytics for Target",
+        "analytics for target",
+        "analytics-for-target",
+        "analytics_for_target",
+        "analyticsfortarget",
+        "targetraw"
+      ]
+    },
+    {
+      "id": "variables/timepartampm",
+      "name": "AM/PM",
+      "description": "The time of day (whether AM or PM) when a visitor accessed the site.",
+      "aliases": [
+        "AM/PM",
+        "am/pm",
+        "timepartampm"
+      ]
+    },
+    {
+      "id": "variables/timepartdayofmonth",
+      "name": "Day of Month",
+      "description": "The number or percentage of visitors who access the site, categorized by month.",
+      "aliases": [
+        "Day of Month",
+        "day of month",
+        "day-of-month",
+        "day_of_month",
+        "dayofmonth",
+        "timepartdayofmonth"
+      ]
+    },
+    {
+      "id": "variables/timepartdayofweek",
+      "name": "Day of Week",
+      "description": "",
+      "aliases": [
+        "Day of Week",
+        "day of week",
+        "day-of-week",
+        "day_of_week",
+        "dayofweek",
+        "timepartdayofweek"
+      ]
+    },
+    {
+      "id": "variables/timepartdayofyear",
+      "name": "Day of Year",
+      "description": "The numeric day of any given year. This allows you to view data by day, without having to use static dates as dimension items.",
+      "aliases": [
+        "Day of Year",
+        "day of year",
+        "day-of-year",
+        "day_of_year",
+        "dayofyear",
+        "timepartdayofyear"
+      ]
+    },
+    {
+      "id": "variables/timeparthourofday",
+      "name": "Hour of Day",
+      "description": "The numeric hour of any given day. This allows you to view data by relative time of day, without having to use static hours as dimension items.",
+      "aliases": [
+        "Hour of Day",
+        "hour of day",
+        "hour-of-day",
+        "hour_of_day",
+        "hourofday",
+        "timeparthourofday"
+      ]
+    },
+    {
+      "id": "variables/timepartmonthofyear",
+      "name": "Month of Year",
+      "description": "The month of any given year. This allows you to view data by the month of the year, without having to use a static date as dimension items.",
+      "aliases": [
+        "Month of Year",
+        "month of year",
+        "month-of-year",
+        "month_of_year",
+        "monthofyear",
+        "timepartmonthofyear"
+      ]
+    },
+    {
+      "id": "variables/timepartquarterofyear",
+      "name": "Quarter of Year",
+      "description": "The quarter of any given year. This allows you to view data by quarter of the year, without having to use static dates as dimension items.",
+      "aliases": [
+        "Quarter of Year",
+        "quarter of year",
+        "quarter-of-year",
+        "quarter_of_year",
+        "quarterofyear",
+        "timepartquarterofyear"
+      ]
+    },
+    {
+      "id": "variables/timepartweekdayweekend",
+      "name": "Weekday/Weekend",
+      "description": "The number or percentage of visitors who access the site, categorized by weekday and weekend.",
+      "aliases": [
+        "Weekday/Weekend",
+        "timepartweekdayweekend",
+        "weekday/weekend"
+      ]
+    },
+    {
+      "id": "variables/timeprior",
+      "name": "Time Prior to Event",
+      "description": "Reports the amount of time that passed between the first hit of the visit and the desired metric. This dimension is useful to determine the amount of time it takes to hit a success event, such as a form submission or a purchase.",
+      "aliases": [
+        "Time Prior to Event",
+        "time prior to event",
+        "time-prior-to-event",
+        "time_prior_to_event",
+        "timeprior",
+        "timepriortoevent"
+      ]
+    },
+    {
+      "id": "variables/timespent",
+      "name": "Time Spent per Visit - Bucketed",
+      "description": "Categorizes the length of time that visitors spend on the site during a single visit into different time ranges or \"buckets\".",
+      "aliases": [
+        "Time Spent per Visit - Bucketed",
+        "time spent per visit - bucketed",
+        "time-spent-per-visit---bucketed",
+        "time_spent_per_visit_-_bucketed",
+        "timespent",
+        "timespentpervisit-bucketed"
+      ]
+    },
+    {
+      "id": "variables/timezone",
+      "name": "Time Zone",
+      "description": "The time zone in which visitors are located when they interact with the site. This can help you understand user behavior and engagement patterns across different geographic regions.",
+      "aliases": [
+        "Time Zone",
+        "time zone",
+        "time-zone",
+        "time_zone",
+        "timezone"
+      ]
+    },
+    {
+      "id": "variables/timezonevalue",
+      "name": "Timezone",
+      "description": "",
+      "aliases": [
+        "Timezone",
+        "timezone",
+        "timezonevalue"
+      ]
+    },
+    {
+      "id": "variables/tnt",
+      "name": "Target Integration",
+      "description": "",
+      "aliases": [
+        "Target Integration",
+        "target integration",
+        "target-integration",
+        "target_integration",
+        "targetintegration",
+        "tnt"
+      ]
+    },
+    {
+      "id": "variables/tntaction",
+      "name": "Target Integration Action",
+      "description": "",
+      "aliases": [
+        "Target Integration Action",
+        "target integration action",
+        "target-integration-action",
+        "target_integration_action",
+        "targetintegrationaction",
+        "tntaction"
+      ]
+    },
+    {
+      "id": "variables/tntbase",
+      "name": "SC-TnT",
+      "description": "The base URL of the Adobe Target server that is being used for testing or personalization activities.",
+      "aliases": [
+        "SC-TnT",
+        "sc-tnt",
+        "tntbase"
+      ]
+    },
+    {
+      "id": "variables/topleveldomain",
+      "name": "Top Level Domain",
+      "description": "The last part of a website's domain name after the final dot, such as \".com\", \".org\", or \".edu\". This can help you understand how visitors are accessing the site and which top-level domains are driving the most traffic.",
+      "aliases": [
+        "Top Level Domain",
+        "top level domain",
+        "top-level-domain",
+        "top_level_domain",
+        "topleveldomain"
+      ]
+    },
+    {
+      "id": "variables/transactionid",
+      "name": "Transaction ID",
+      "description": "",
+      "aliases": [
+        "Transaction ID",
+        "transaction id",
+        "transaction-id",
+        "transaction_id",
+        "transactionid"
+      ]
+    },
+    {
+      "id": "variables/truncatedhit",
+      "name": "Truncated Hit",
+      "description": "",
+      "aliases": [
+        "Truncated Hit",
+        "truncated hit",
+        "truncated-hit",
+        "truncated_hit",
+        "truncatedhit"
+      ]
+    },
+    {
+      "id": "variables/uacolor",
+      "name": "User Agent Color",
+      "description": "",
+      "aliases": [
+        "User Agent Color",
+        "uacolor",
+        "user agent color",
+        "user-agent-color",
+        "user_agent_color",
+        "useragentcolor"
+      ]
+    },
+    {
+      "id": "variables/uaoperatingsystem",
+      "name": "User Agent Operating System",
+      "description": "",
+      "aliases": [
+        "User Agent Operating System",
+        "uaoperatingsystem",
+        "user agent operating system",
+        "user-agent-operating-system",
+        "user_agent_operating_system",
+        "useragentoperatingsystem"
+      ]
+    },
+    {
+      "id": "variables/uapixels",
+      "name": "User Agent Pixels",
+      "description": "",
+      "aliases": [
+        "User Agent Pixels",
+        "uapixels",
+        "user agent pixels",
+        "user-agent-pixels",
+        "user_agent_pixels",
+        "useragentpixels"
+      ]
+    },
+    {
+      "id": "variables/useragent",
+      "name": "User Agent",
+      "description": "",
+      "aliases": [
+        "User Agent",
+        "user agent",
+        "user-agent",
+        "user_agent",
+        "useragent"
+      ]
+    },
+    {
+      "id": "variables/userid",
+      "name": "User ID",
+      "description": "",
+      "aliases": [
+        "User ID",
+        "user id",
+        "user-id",
+        "user_id",
+        "userid"
+      ]
+    },
+    {
+      "id": "variables/vanewengagement",
+      "name": "New Engagement",
+      "description": "",
+      "aliases": [
+        "New Engagement",
+        "new engagement",
+        "new-engagement",
+        "new_engagement",
+        "newengagement",
+        "vanewengagement"
+      ]
+    },
+    {
+      "id": "variables/visidnew",
+      "name": "New Visitor ID",
+      "description": "",
+      "aliases": [
+        "New Visitor ID",
+        "new visitor id",
+        "new-visitor-id",
+        "new_visitor_id",
+        "newvisitorid",
+        "visidnew"
+      ]
+    },
+    {
+      "id": "variables/visidtype",
+      "name": "Visitor ID Type",
+      "description": "",
+      "aliases": [
+        "Visitor ID Type",
+        "visidtype",
+        "visitor id type",
+        "visitor-id-type",
+        "visitor_id_type",
+        "visitoridtype"
+      ]
+    },
+    {
+      "id": "variables/visitnumber",
+      "name": "Visit Number",
+      "description": "The number of times a visitor accessed the site within a defined time period. This can help you understand how engaged a visitor is when returning to your site.",
+      "aliases": [
+        "Visit Number",
+        "visit number",
+        "visit-number",
+        "visit_number",
+        "visitnumber"
+      ]
+    },
+    {
+      "id": "variables/visitorid",
+      "name": "Visitor ID",
+      "description": "A unique, persistent identifier assigned to each individual visitor who accesses the site. This identifier enables Adobe Analytics to track and analyze visitor behavior over time, even if the visitor is using multiple devices or browsers.",
+      "aliases": [
+        "Visitor ID",
+        "visitor id",
+        "visitor-id",
+        "visitor_id",
+        "visitorid"
+      ]
+    },
+    {
+      "id": "variables/visitpagenum",
+      "name": "Visit Page Number",
+      "description": "A sequential number that represents the order in which a specific page was viewed by a visitor during a given visit to the site. This can help you understand the path that visitors take as they navigate through the site, and can be used to analyze visitor behavior and engagement.",
+      "aliases": [
+        "Visit Page Number",
+        "visit page number",
+        "visit-page-number",
+        "visit_page_number",
+        "visitpagenum",
+        "visitpagenumber"
+      ]
+    },
+    {
+      "id": "variables/visitstarttimegmt",
+      "name": "Visit Start Time UTC",
+      "description": "",
+      "aliases": [
+        "Visit Start Time UTC",
+        "visit start time utc",
+        "visit-start-time-utc",
+        "visit_start_time_utc",
+        "visitstarttimegmt",
+        "visitstarttimeutc"
+      ]
+    },
+    {
+      "id": "variables/weeklyuniquecustomers",
+      "name": "Weekly Unique Customers",
+      "description": "The number of unique visitors per week.",
+      "aliases": [
+        "Weekly Unique Customers",
+        "weekly unique customers",
+        "weekly-unique-customers",
+        "weekly_unique_customers",
+        "weeklyuniquecustomers"
+      ]
+    },
+    {
+      "id": "variables/yearlyuniquecustomers",
+      "name": "Yearly Unique Customers",
+      "description": "The number of unique visitors per year.",
+      "aliases": [
+        "Yearly Unique Customers",
+        "yearly unique customers",
+        "yearly-unique-customers",
+        "yearly_unique_customers",
+        "yearlyuniquecustomers"
+      ]
+    },
+    {
+      "id": "variables/zip",
+      "name": "Zip Code",
+      "description": "Categorizes site visitors based on their zip code or postal code. This can help you understand the success of local advertising or see where in the world your site performs best.",
+      "aliases": [
+        "Zip Code",
+        "zip",
+        "zip code",
+        "zip-code",
+        "zip_code",
+        "zipcode"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "metrics/averagepagedepth",
+      "name": "Average Page Depth",
+      "description": "",
+      "aliases": [
+        "Average Page Depth",
+        "average page depth",
+        "average-page-depth",
+        "average_page_depth",
+        "averagepagedepth"
+      ]
+    },
+    {
+      "id": "metrics/averagetimespentonpage",
+      "name": "Average Time Spent on Page (seconds)",
+      "description": "The average amount of time visitors spend on a page.",
+      "aliases": [
+        "Average Time Spent on Page (seconds)",
+        "average time spent on page (seconds)",
+        "average-time-spent-on-page-(seconds)",
+        "average_time_spent_on_page_(seconds)",
+        "averagetimespentonpage",
+        "averagetimespentonpage(seconds)"
+      ]
+    },
+    {
+      "id": "metrics/averagetimespentonsite",
+      "name": "Average Time Spent on Site (seconds)",
+      "description": "The total amount of time visitors interact with a specific dimension item, per sequence with a dimension item.",
+      "aliases": [
+        "Average Time Spent on Site (seconds)",
+        "average time spent on site (seconds)",
+        "average-time-spent-on-site-(seconds)",
+        "average_time_spent_on_site_(seconds)",
+        "averagetimespentonsite",
+        "averagetimespentonsite(seconds)"
+      ]
+    },
+    {
+      "id": "metrics/averagevisitdepth",
+      "name": "Average Visit Depth",
+      "description": "The average number of pages viewed during a single visit to the site. This can help you understand how engaged visitors are with content on the site.",
+      "aliases": [
+        "Average Visit Depth",
+        "average visit depth",
+        "average-visit-depth",
+        "average_visit_depth",
+        "averagevisitdepth"
+      ]
+    },
+    {
+      "id": "metrics/botoccurrences",
+      "name": "Bot Occurrences",
+      "description": "The number of hits where a bot traffic was detected. The Bot Occurrences metric should only be used with the Bot Name, Page, or standard time dimensions (such as Day, Week, etc). If this metric is used with any other Analytics dimension, no data will result because it is unassociated with normal customer-based data in Analytics. Data processing for Bot Occurrences began between February 26 and March 10, 2023, any reporting window prior to this date will not have data. This is an Adobe provided component.",
+      "aliases": [
+        "Bot Occurrences",
+        "bot occurrences",
+        "bot-occurrences",
+        "bot_occurrences",
+        "botoccurrences"
+      ]
+    },
+    {
+      "id": "metrics/botpageviews",
+      "name": "Bot Page Views",
+      "description": "Shows the number of times a bot was set or persisted on a page. The Bot Page Views metric should only be used with the Bot Name, Page, or standard time dimensions (such as Day, Week, etc). If this metric is used with any other Analytics dimension, no data will result because it is unassociated with normal customer-based data in Analytics. Data processing for Bot Page Views began between February 26 and March 10, 2023, any reporting window prior to this date will not have data. This is an Adobe provided component.",
+      "aliases": [
+        "Bot Page Views",
+        "bot page views",
+        "bot-page-views",
+        "bot_page_views",
+        "botpageviews"
+      ]
+    },
+    {
+      "id": "metrics/bouncerate",
+      "name": "Bounce Rate",
+      "description": "The ratio of visits that contained exactly one hit compared to the number of visits on that page. This can help you to understand which dimension items have the highest bounce rate, or to see an aggregated total bounce rate of your site over time.",
+      "aliases": [
+        "Bounce Rate",
+        "bounce rate",
+        "bounce-rate",
+        "bounce_rate",
+        "bouncerate"
+      ]
+    },
+    {
+      "id": "metrics/bounces",
+      "name": "Bounces",
+      "description": "The number of times a visitor leaves the site after viewing only one page. This can help you understand the top entry pages that cause visitors to bounce, or to see how bounces trend over time.",
+      "aliases": [
+        "Bounces",
+        "bounces"
+      ]
+    },
+    {
+      "id": "metrics/campaigninstances",
+      "name": "Campaign Click-throughs",
+      "description": "",
+      "aliases": [
+        "Campaign Click-throughs",
+        "campaign click-throughs",
+        "campaign-click-throughs",
+        "campaign_click-throughs",
+        "campaignclick-throughs",
+        "campaigninstances"
+      ]
+    },
+    {
+      "id": "metrics/cartadditions",
+      "name": "Cart Additions",
+      "description": "The number of times a visitor added something to their cart. This can help you understand at what part of the conversion funnel that customers show enough interest in a product to add it to their cart.",
+      "aliases": [
+        "Cart Additions",
+        "cart additions",
+        "cart-additions",
+        "cart_additions",
+        "cartadditions"
+      ]
+    },
+    {
+      "id": "metrics/cartremovals",
+      "name": "Cart Removals",
+      "description": "The number of times a visitor removes an item from their online shopping cart during a session. This can help you understand which factors might be preventing users from completing a purchase.",
+      "aliases": [
+        "Cart Removals",
+        "cart removals",
+        "cart-removals",
+        "cart_removals",
+        "cartremovals"
+      ]
+    },
+    {
+      "id": "metrics/carts",
+      "name": "Carts",
+      "description": "The number of times visitors to the site added items to their online shopping carts.",
+      "aliases": [
+        "Carts",
+        "carts"
+      ]
+    },
+    {
+      "id": "metrics/cartviews",
+      "name": "Cart Views",
+      "description": "The number of times a visitor viewed their shopping cart. This can help you understand at what part of the conversion funnel that customers view the contents in their cart.",
+      "aliases": [
+        "Cart Views",
+        "cart views",
+        "cart-views",
+        "cart_views",
+        "cartviews"
+      ]
+    },
+    {
+      "id": "metrics/checkouts",
+      "name": "Checkouts",
+      "description": "The number of times visitors to the site initiated the checkout process to purchase a product or service.",
+      "aliases": [
+        "Checkouts",
+        "checkouts"
+      ]
+    },
+    {
+      "id": "metrics/clickmaplinkbyregioninstances",
+      "name": "Activity Map Link By Region Instances",
+      "description": "",
+      "aliases": [
+        "Activity Map Link By Region Instances",
+        "activity map link by region instances",
+        "activity-map-link-by-region-instances",
+        "activity_map_link_by_region_instances",
+        "activitymaplinkbyregioninstances",
+        "clickmaplinkbyregioninstances"
+      ]
+    },
+    {
+      "id": "metrics/clickmaplinkinstances",
+      "name": "Activity Map Link Instances",
+      "description": "",
+      "aliases": [
+        "Activity Map Link Instances",
+        "activity map link instances",
+        "activity-map-link-instances",
+        "activity_map_link_instances",
+        "activitymaplinkinstances",
+        "clickmaplinkinstances"
+      ]
+    },
+    {
+      "id": "metrics/clickmappageinstances",
+      "name": "Activity Map Page Instances",
+      "description": "",
+      "aliases": [
+        "Activity Map Page Instances",
+        "activity map page instances",
+        "activity-map-page-instances",
+        "activity_map_page_instances",
+        "activitymappageinstances",
+        "clickmappageinstances"
+      ]
+    },
+    {
+      "id": "metrics/clickmapregioninstances",
+      "name": "Activity Map Region Instances",
+      "description": "",
+      "aliases": [
+        "Activity Map Region Instances",
+        "activity map region instances",
+        "activity-map-region-instances",
+        "activity_map_region_instances",
+        "activitymapregioninstances",
+        "clickmapregioninstances"
+      ]
+    },
+    {
+      "id": "metrics/customlinkinstances",
+      "name": "Custom Link Instances",
+      "description": "",
+      "aliases": [
+        "Custom Link Instances",
+        "custom link instances",
+        "custom-link-instances",
+        "custom_link_instances",
+        "customlinkinstances"
+      ]
+    },
+    {
+      "id": "metrics/downloadlinkinstances",
+      "name": "Download Link Instances",
+      "description": "The number of times visitors click on download links on the site. This can help you understand how effective certain links are.",
+      "aliases": [
+        "Download Link Instances",
+        "download link instances",
+        "download-link-instances",
+        "download_link_instances",
+        "downloadlinkinstances"
+      ]
+    },
+    {
+      "id": "metrics/entries",
+      "name": "Entries",
+      "description": "The number of times visitors to the site first land on a given page to start their session.",
+      "aliases": [
+        "Entries",
+        "entries"
+      ]
+    },
+    {
+      "id": "metrics/evar1instances",
+      "name": "Internal Campaign Instances",
+      "description": "",
+      "aliases": [
+        "Internal Campaign Instances",
+        "evar1instances",
+        "internal campaign instances",
+        "internal-campaign-instances",
+        "internal_campaign_instances",
+        "internalcampaigninstances"
+      ]
+    },
+    {
+      "id": "metrics/evar2instances",
+      "name": "Internal Search Terms Instances",
+      "description": "",
+      "aliases": [
+        "Internal Search Terms Instances",
+        "evar2instances",
+        "internal search terms instances",
+        "internal-search-terms-instances",
+        "internal_search_terms_instances",
+        "internalsearchtermsinstances"
+      ]
+    },
+    {
+      "id": "metrics/evar3instances",
+      "name": "Custom Conversion 3 Instances",
+      "description": "",
+      "aliases": [
+        "Custom Conversion 3 Instances",
+        "custom conversion 3 instances",
+        "custom-conversion-3-instances",
+        "custom_conversion_3_instances",
+        "customconversion3instances",
+        "evar3instances"
+      ]
+    },
+    {
+      "id": "metrics/evar4instances",
+      "name": "Custom Conversion 4 Instances",
+      "description": "",
+      "aliases": [
+        "Custom Conversion 4 Instances",
+        "custom conversion 4 instances",
+        "custom-conversion-4-instances",
+        "custom_conversion_4_instances",
+        "customconversion4instances",
+        "evar4instances"
+      ]
+    },
+    {
+      "id": "metrics/event1",
+      "name": "Registrations",
+      "description": "",
+      "aliases": [
+        "Registrations",
+        "event1",
+        "registrations"
+      ]
+    },
+    {
+      "id": "metrics/event2",
+      "name": "Email Registrations",
+      "description": "",
+      "aliases": [
+        "Email Registrations",
+        "email registrations",
+        "email-registrations",
+        "email_registrations",
+        "emailregistrations",
+        "event2"
+      ]
+    },
+    {
+      "id": "metrics/event3",
+      "name": "Subscriptions",
+      "description": "",
+      "aliases": [
+        "Subscriptions",
+        "event3",
+        "subscriptions"
+      ]
+    },
+    {
+      "id": "metrics/event4",
+      "name": "Page Views",
+      "description": "",
+      "aliases": [
+        "Page Views",
+        "event4",
+        "page views",
+        "page-views",
+        "page_views",
+        "pageviews"
+      ]
+    },
+    {
+      "id": "metrics/event5",
+      "name": "Ad Impressions",
+      "description": "",
+      "aliases": [
+        "Ad Impressions",
+        "ad impressions",
+        "ad-impressions",
+        "ad_impressions",
+        "adimpressions",
+        "event5"
+      ]
+    },
+    {
+      "id": "metrics/event6",
+      "name": "Ad Clicks",
+      "description": "",
+      "aliases": [
+        "Ad Clicks",
+        "ad clicks",
+        "ad-clicks",
+        "ad_clicks",
+        "adclicks",
+        "event6"
+      ]
+    },
+    {
+      "id": "metrics/exitlinkinstances",
+      "name": "Exit Link Instances",
+      "description": "The number of times visitors clicked a specific link before leaving your website. This can help you understand which links are causing users to leave and potentially identify opportunities for optimization.",
+      "aliases": [
+        "Exit Link Instances",
+        "exit link instances",
+        "exit-link-instances",
+        "exit_link_instances",
+        "exitlinkinstances"
+      ]
+    },
+    {
+      "id": "metrics/exits",
+      "name": "Exits",
+      "description": "The number of times a given dimension item is captured as the last value in a visit. This can help you understand the last thing visitors see before leaving your site, allowing you to optimize the experience a visitor gets before they leave.",
+      "aliases": [
+        "Exits",
+        "exits"
+      ]
+    },
+    {
+      "id": "metrics/itemtimespent",
+      "name": "Total Seconds Spent",
+      "description": "The amount of time visitors spend viewing a specific item on the site, such as a product or piece of content. This can help you understand how interested visitors are in specific products.",
+      "aliases": [
+        "Total Seconds Spent",
+        "itemtimespent",
+        "total seconds spent",
+        "total-seconds-spent",
+        "total_seconds_spent",
+        "totalsecondsspent"
+      ]
+    },
+    {
+      "id": "metrics/itemtimespentdw",
+      "name": "Total Seconds Spent",
+      "description": "",
+      "aliases": [
+        "Total Seconds Spent",
+        "itemtimespentdw",
+        "total seconds spent",
+        "total-seconds-spent",
+        "total_seconds_spent",
+        "totalsecondsspent"
+      ]
+    },
+    {
+      "id": "metrics/marketingchannellasttouchinstances",
+      "name": "Marketing Channel Instances",
+      "description": "",
+      "aliases": [
+        "Marketing Channel Instances",
+        "marketing channel instances",
+        "marketing-channel-instances",
+        "marketing_channel_instances",
+        "marketingchannelinstances",
+        "marketingchannellasttouchinstances"
+      ]
+    },
+    {
+      "id": "metrics/mobileviews",
+      "name": "Mobile Views",
+      "description": "",
+      "aliases": [
+        "Mobile Views",
+        "mobile views",
+        "mobile-views",
+        "mobile_views",
+        "mobileviews"
+      ]
+    },
+    {
+      "id": "metrics/newengagements",
+      "name": "New Engagements",
+      "description": "the number of times a visitor matches a marketing channel for the first time in that visitor's engagement period. This can compare any dimension with a visitor matching a marketing channel processing rule for the first time.",
+      "aliases": [
+        "New Engagements",
+        "new engagements",
+        "new-engagements",
+        "new_engagements",
+        "newengagements"
+      ]
+    },
+    {
+      "id": "metrics/occurrences",
+      "name": "Occurrences",
+      "description": "The number of hits where a given dimension was set or persisted.",
+      "aliases": [
+        "Occurrences",
+        "occurrences"
+      ]
+    },
+    {
+      "id": "metrics/orders",
+      "name": "Orders",
+      "description": "The total number of purchase events made on your site. This metric is vital for eCommerce sites in measuring conversion because you can combine this metric with any dimension to see which dimension items contributed to an order.",
+      "aliases": [
+        "Orders",
+        "orders"
+      ]
+    },
+    {
+      "id": "metrics/orderspervisit",
+      "name": "Orders per Visit",
+      "description": "The ratio of orders that visitors made over the total number of visits to your site. This can help you understand conversion rate for your site.",
+      "aliases": [
+        "Orders per Visit",
+        "orders per visit",
+        "orders-per-visit",
+        "orders_per_visit",
+        "orderspervisit"
+      ]
+    },
+    {
+      "id": "metrics/pageevents",
+      "name": "Page Events",
+      "description": "Specific user interactions or actions that occur on the site, such as clicks, form submissions, video plays, downloads, and other custom events.",
+      "aliases": [
+        "Page Events",
+        "page events",
+        "page-events",
+        "page_events",
+        "pageevents"
+      ]
+    },
+    {
+      "id": "metrics/pagesnotfound",
+      "name": "Pages Not Found",
+      "description": "Shows URLs that contained an error. This can help you lower the number of errors that visitor get on your site.",
+      "aliases": [
+        "Pages Not Found",
+        "pages not found",
+        "pages-not-found",
+        "pages_not_found",
+        "pagesnotfound"
+      ]
+    },
+    {
+      "id": "metrics/pageviews",
+      "name": "Page Views",
+      "description": "Shows the number of times a given dimension item was set or persisted on a page. It is one of the most common and basic metrics in reports.",
+      "aliases": [
+        "Page Views",
+        "page views",
+        "page-views",
+        "page_views",
+        "pageviews"
+      ]
+    },
+    {
+      "id": "metrics/pageviewspervisit",
+      "name": "Average Page Views per Visit",
+      "description": "",
+      "aliases": [
+        "Average Page Views per Visit",
+        "average page views per visit",
+        "average-page-views-per-visit",
+        "average_page_views_per_visit",
+        "averagepageviewspervisit",
+        "pageviewspervisit"
+      ]
+    },
+    {
+      "id": "metrics/productinstances",
+      "name": "Product Views",
+      "description": "The number of times any product was viewed. This can help you see your top-viewed products, or how total product views trend over time.",
+      "aliases": [
+        "Product Views",
+        "product views",
+        "product-views",
+        "product_views",
+        "productinstances",
+        "productviews"
+      ]
+    },
+    {
+      "id": "metrics/referrerinstances",
+      "name": "Referrer Instances",
+      "description": "",
+      "aliases": [
+        "Referrer Instances",
+        "referrer instances",
+        "referrer-instances",
+        "referrer_instances",
+        "referrerinstances"
+      ]
+    },
+    {
+      "id": "metrics/reloads",
+      "name": "Reloads",
+      "description": "The number of times a dimension item was present during a reload. A visitor refreshing their browser is the most common way to trigger a reload.",
+      "aliases": [
+        "Reloads",
+        "reloads"
+      ]
+    },
+    {
+      "id": "metrics/revenue",
+      "name": "Revenue",
+      "description": "The monetary amount of products purchased within all orders. This metric is vital for eCommerce sites in measuring conversion because you can combine this metric with any dimension to see which dimension items contributed to revenue.",
+      "aliases": [
+        "Revenue",
+        "revenue"
+      ]
+    },
+    {
+      "id": "metrics/searches",
+      "name": "Searches",
+      "description": "The number of hits that match Adobe's external search detection. This can help you understand how non-search dimensions contributed to search engine traffic.",
+      "aliases": [
+        "Searches",
+        "searches"
+      ]
+    },
+    {
+      "id": "metrics/singlepagevisits",
+      "name": "Single Page Visits",
+      "description": "Occurrences when visitors leave the site after viewing only a single page.",
+      "aliases": [
+        "Single Page Visits",
+        "single page visits",
+        "single-page-visits",
+        "single_page_visits",
+        "singlepagevisits"
+      ]
+    },
+    {
+      "id": "metrics/singlevaluevisits",
+      "name": "Single Access",
+      "description": "",
+      "aliases": [
+        "Single Access",
+        "single access",
+        "single-access",
+        "single_access",
+        "singleaccess",
+        "singlevaluevisits"
+      ]
+    },
+    {
+      "id": "metrics/targetconversion",
+      "name": "Activity Conversions",
+      "description": "The number of times visitors complete a specific action on your website, which is defined as a \"conversion.\"",
+      "aliases": [
+        "Activity Conversions",
+        "activity conversions",
+        "activity-conversions",
+        "activity_conversions",
+        "activityconversions",
+        "targetconversion"
+      ]
+    },
+    {
+      "id": "metrics/targetimpression",
+      "name": "Activity Impressions",
+      "description": "",
+      "aliases": [
+        "Activity Impressions",
+        "activity impressions",
+        "activity-impressions",
+        "activity_impressions",
+        "activityimpressions",
+        "targetimpression"
+      ]
+    },
+    {
+      "id": "metrics/timespentvisit",
+      "name": "Time Spent per Visit (seconds)",
+      "description": "The average amount of time that visitors interact with a given dimension item during each visit.",
+      "aliases": [
+        "Time Spent per Visit (seconds)",
+        "time spent per visit (seconds)",
+        "time-spent-per-visit-(seconds)",
+        "time_spent_per_visit_(seconds)",
+        "timespentpervisit(seconds)",
+        "timespentvisit"
+      ]
+    },
+    {
+      "id": "metrics/timespentvisitor",
+      "name": "Time Spent per Visitor (seconds)",
+      "description": "The average amount of time that visitors interact with a given dimension item during a visitor's entire lifetime.",
+      "aliases": [
+        "Time Spent per Visitor (seconds)",
+        "time spent per visitor (seconds)",
+        "time-spent-per-visitor-(seconds)",
+        "time_spent_per_visitor_(seconds)",
+        "timespentpervisitor(seconds)",
+        "timespentvisitor"
+      ]
+    },
+    {
+      "id": "metrics/units",
+      "name": "Units",
+      "description": "The total number of products purchased within all orders. This metric is vital for eCommerce sites in measuring conversion because you can combine this metric with any dimension to see which dimension items contributed to the number of products purchased.",
+      "aliases": [
+        "Units",
+        "units"
+      ]
+    },
+    {
+      "id": "metrics/visitors",
+      "name": "Unique Visitors",
+      "description": "The number of unique individuals who have visited the site during a specified time period. This can help you understand the overall reach of the site.",
+      "aliases": [
+        "Unique Visitors",
+        "unique visitors",
+        "unique-visitors",
+        "unique_visitors",
+        "uniquevisitors",
+        "visitors"
+      ]
+    },
+    {
+      "id": "metrics/visitorsdaily",
+      "name": "Daily Unique Visitors",
+      "description": "The number of unique visitors to the site during each day in a given time period.",
+      "aliases": [
+        "Daily Unique Visitors",
+        "daily unique visitors",
+        "daily-unique-visitors",
+        "daily_unique_visitors",
+        "dailyuniquevisitors",
+        "visitorsdaily"
+      ]
+    },
+    {
+      "id": "metrics/visitorshourly",
+      "name": "Hourly Unique Visitors",
+      "description": "The number of unique visitors to the site during each hour of the day. This can help you understand the time of day when the site is busiest to help optimize marketing campaigns and website content.",
+      "aliases": [
+        "Hourly Unique Visitors",
+        "hourly unique visitors",
+        "hourly-unique-visitors",
+        "hourly_unique_visitors",
+        "hourlyuniquevisitors",
+        "visitorshourly"
+      ]
+    },
+    {
+      "id": "metrics/visitorsmcvisid",
+      "name": "Visitors with Experience Cloud ID",
+      "description": "The number of unique visitors to the site based on their Marketing Cloud Visitor ID.",
+      "aliases": [
+        "Visitors with Experience Cloud ID",
+        "visitors with experience cloud id",
+        "visitors-with-experience-cloud-id",
+        "visitors_with_experience_cloud_id",
+        "visitorsmcvisid",
+        "visitorswithexperiencecloudid"
+      ]
+    },
+    {
+      "id": "metrics/visitorsmonthly",
+      "name": "Monthly Unique Visitors",
+      "description": "The number of unique visitors to the site during each month in a given time period.",
+      "aliases": [
+        "Monthly Unique Visitors",
+        "monthly unique visitors",
+        "monthly-unique-visitors",
+        "monthly_unique_visitors",
+        "monthlyuniquevisitors",
+        "visitorsmonthly"
+      ]
+    },
+    {
+      "id": "metrics/visitorsquarterly",
+      "name": "Quarterly Unique Visitors",
+      "description": "The number of unique visitors to the site during each quarter in a given time period.",
+      "aliases": [
+        "Quarterly Unique Visitors",
+        "quarterly unique visitors",
+        "quarterly-unique-visitors",
+        "quarterly_unique_visitors",
+        "quarterlyuniquevisitors",
+        "visitorsquarterly"
+      ]
+    },
+    {
+      "id": "metrics/visitorsweekly",
+      "name": "Weekly Unique Visitors",
+      "description": "The number of unique visitors to the site during each week in a given time period.",
+      "aliases": [
+        "Weekly Unique Visitors",
+        "visitorsweekly",
+        "weekly unique visitors",
+        "weekly-unique-visitors",
+        "weekly_unique_visitors",
+        "weeklyuniquevisitors"
+      ]
+    },
+    {
+      "id": "metrics/visitorsyearly",
+      "name": "Yearly Unique Visitors",
+      "description": "The number of unique visitors to the site during each year in a given time period.",
+      "aliases": [
+        "Yearly Unique Visitors",
+        "visitorsyearly",
+        "yearly unique visitors",
+        "yearly-unique-visitors",
+        "yearly_unique_visitors",
+        "yearlyuniquevisitors"
+      ]
+    },
+    {
+      "id": "metrics/visits",
+      "name": "Visits",
+      "description": "The number of sessions across all visitors on the site.",
+      "aliases": [
+        "Visits",
+        "visits"
+      ]
+    },
+    {
+      "id": "metrics/visitsalldw",
+      "name": "Visits - All Visitors",
+      "description": "",
+      "aliases": [
+        "Visits - All Visitors",
+        "visits - all visitors",
+        "visits---all-visitors",
+        "visits-allvisitors",
+        "visits_-_all_visitors",
+        "visitsalldw"
+      ]
+    },
+    {
+      "id": "metrics/visitspersistentdw",
+      "name": "Visits",
+      "description": "",
+      "aliases": [
+        "Visits",
+        "visits",
+        "visitspersistentdw"
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "id": "s300006494_59f8e6208f0c657d68867483",
+      "name": "Page Segment",
+      "description": "",
+      "aliases": [
+        "Page Segment",
+        "page segment",
+        "page-segment",
+        "page_segment",
+        "pagesegment"
+      ]
+    },
+    {
+      "id": "s300006494_5c40befc606b0711fa753bac",
+      "name": "Visitors from Jenn's blog",
+      "description": "",
+      "aliases": [
+        "Visitors from Jenn's blog",
+        "visitors from jenn's blog",
+        "visitors-from-jenn's-blog",
+        "visitors_from_jenn's_blog",
+        "visitorsfromjenn'sblog"
+      ]
+    },
+    {
+      "id": "s300006494_5d5df7739973e91e263d5334",
+      "name": "Blog Post View",
+      "description": "",
+      "aliases": [
+        "Blog Post View",
+        "blog post view",
+        "blog-post-view",
+        "blog_post_view",
+        "blogpostview"
+      ]
+    },
+    {
+      "id": "usa",
+      "name": "USA",
+      "description": "Visitors who accessed the site from the United States.",
+      "aliases": [
+        "USA",
+        "usa"
+      ]
+    },
+    {
+      "id": "11_to_20_days_since_last_visit",
+      "name": "11-20 Days",
+      "description": "Visitors to the site whose last visit was between 11 and 20 days ago.",
+      "aliases": [
+        "11-20 Days",
+        "11-20 days",
+        "11-20-days",
+        "11-20_days",
+        "11-20days"
+      ]
+    },
+    {
+      "id": "21_to_50_days_since_last_visit",
+      "name": "21-50 Days",
+      "description": "Visitors to the site whose last visit was between 21 and 50 days ago.",
+      "aliases": [
+        "21-50 Days",
+        "21-50 days",
+        "21-50-days",
+        "21-50_days",
+        "21-50days"
+      ]
+    },
+    {
+      "id": "chrome_browsers",
+      "name": "Chrome Browsers",
+      "description": "Visitors who accessed the site from a Chrome browser.",
+      "aliases": [
+        "Chrome Browsers",
+        "chrome browsers",
+        "chrome-browsers",
+        "chrome_browsers",
+        "chromebrowsers"
+      ]
+    },
+    {
+      "id": "51_to_100_days_since_last_visit",
+      "name": "51-100 Days",
+      "description": "Visitors to the site whose last visit was between 51 and 100 days ago.",
+      "aliases": [
+        "51-100 Days",
+        "51-100 days",
+        "51-100-days",
+        "51-100_days",
+        "51-100days"
+      ]
+    },
+    {
+      "id": "Visits_from_Mobile_Devices",
+      "name": "Visits from Mobile Devices",
+      "description": "Visitors who accessed the site from a mobile device.",
+      "aliases": [
+        "Visits from Mobile Devices",
+        "visits from mobile devices",
+        "visits-from-mobile-devices",
+        "visits_from_mobile_devices",
+        "visitsfrommobiledevices"
+      ]
+    },
+    {
+      "id": "Single_Page_Visits",
+      "name": "Single Page Visits",
+      "description": "Visitors who viewed only 1 page during their visit.",
+      "aliases": [
+        "Single Page Visits",
+        "single page visits",
+        "single-page-visits",
+        "single_page_visits",
+        "singlepagevisits"
+      ]
+    },
+    {
+      "id": "Mobile_Web_Hits",
+      "name": "Mobile Web Hits",
+      "description": "The number of visits to the website from a mobile device.",
+      "aliases": [
+        "Mobile Web Hits",
+        "mobile web hits",
+        "mobile-web-hits",
+        "mobile_web_hits",
+        "mobilewebhits"
+      ]
+    },
+    {
+      "id": "All_Visits",
+      "name": "All Visits",
+      "description": "All visitors to the site.",
+      "aliases": [
+        "All Visits",
+        "all visits",
+        "all-visits",
+        "all_visits",
+        "allvisits"
+      ]
+    },
+    {
+      "id": "usa_or_canada",
+      "name": "Co-op regions",
+      "description": "Visitors who accessed the site from either the United States or Canada.",
+      "aliases": [
+        "Co-op regions",
+        "co-op regions",
+        "co-op-regions",
+        "co-op_regions",
+        "co-opregions"
+      ]
+    },
+    {
+      "id": "0_days_since_last_visit",
+      "name": "0 Days",
+      "description": "Visitors to the site whose last visit was less than 1 day ago.",
+      "aliases": [
+        "0 Days",
+        "0 days",
+        "0-days",
+        "0_days",
+        "0days"
+      ]
+    },
+    {
+      "id": "more_than_100_days_since_last_visit",
+      "name": "100+ Days",
+      "description": "Visitors to the site whose last visit was more than 100 days ago.",
+      "aliases": [
+        "100+ Days",
+        "100+ days",
+        "100+-days",
+        "100+_days",
+        "100+days"
+      ]
+    },
+    {
+      "id": "Visits_from_Search_Engines",
+      "name": "Visits from Search Engines",
+      "description": "Visitors who accessed the site through a link result that was returned from a search engine.",
+      "aliases": [
+        "Visits from Search Engines",
+        "visits from search engines",
+        "visits-from-search-engines",
+        "visits_from_search_engines",
+        "visitsfromsearchengines"
+      ]
+    },
+    {
+      "id": "Visits_from_Non-Mobile_Devices",
+      "name": "Visits from Non-Mobile Devices",
+      "description": "Visitors who accessed the site from a device that is not a mobile device.",
+      "aliases": [
+        "Visits from Non-Mobile Devices",
+        "visits from non-mobile devices",
+        "visits-from-non-mobile-devices",
+        "visits_from_non-mobile_devices",
+        "visitsfromnon-mobiledevices"
+      ]
+    },
+    {
+      "id": "1_to_5_days_since_last_visit",
+      "name": "1-5 Days",
+      "description": "Visitors to the site whose last visit was between 1 and 5 days ago.",
+      "aliases": [
+        "1-5 Days",
+        "1-5 days",
+        "1-5-days",
+        "1-5_days",
+        "1-5days"
+      ]
+    },
+    {
+      "id": "users_returning_after_7_days",
+      "name": "Users returning after 7 days",
+      "description": "Visitors who returned to the site after an absence of 7 or more days.",
+      "aliases": [
+        "Users returning after 7 days",
+        "users returning after 7 days",
+        "users-returning-after-7-days",
+        "users_returning_after_7_days",
+        "usersreturningafter7days"
+      ]
+    },
+    {
+      "id": "Non-Single_Page_Visit_(Non-Bounces)",
+      "name": "Non-Single Page Visit (Non-Bounces)",
+      "description": "Visitors who viewed more than 1 page during their visit.",
+      "aliases": [
+        "Non-Single Page Visit (Non-Bounces)",
+        "non-single page visit (non-bounces)",
+        "non-single-page-visit-(non-bounces)",
+        "non-single_page_visit_(non-bounces)",
+        "non-singlepagevisit(non-bounces)"
+      ]
+    },
+    {
+      "id": "rest_of_world",
+      "name": "Co-op unsupported regions",
+      "description": "Visitors who accessed the site from anywhere outside the United States or Canada.",
+      "aliases": [
+        "Co-op unsupported regions",
+        "co-op unsupported regions",
+        "co-op-unsupported-regions",
+        "co-op_unsupported_regions",
+        "co-opunsupportedregions"
+      ]
+    },
+    {
+      "id": "Visits_from_Natural_Search",
+      "name": "Visits from Natural Search",
+      "description": "Visitors who accessed the site through a natural search link (not a paid search link).",
+      "aliases": [
+        "Visits from Natural Search",
+        "visits from natural search",
+        "visits-from-natural-search",
+        "visits_from_natural_search",
+        "visitsfromnaturalsearch"
+      ]
+    },
+    {
+      "id": "Purchasers",
+      "name": "Purchasers",
+      "description": "Visitors to the site who made a purchase.",
+      "aliases": [
+        "Purchasers",
+        "purchasers"
+      ]
+    },
+    {
+      "id": "First_Time_Visits",
+      "name": "First Time Visits",
+      "description": "Visitors who visited the site only 1 time.",
+      "aliases": [
+        "First Time Visits",
+        "first time visits",
+        "first-time-visits",
+        "first_time_visits",
+        "firsttimevisits"
+      ]
+    },
+    {
+      "id": "ios_activity",
+      "name": "iOS",
+      "description": "Visitors who accessed the site from Apple iOS devices, such as iPhones and iPads.",
+      "aliases": [
+        "iOS",
+        "ios"
+      ]
+    },
+    {
+      "id": "canada",
+      "name": "Canada",
+      "description": "Visitors who accessed the site from Canada.",
+      "aliases": [
+        "Canada",
+        "canada"
+      ]
+    },
+    {
+      "id": "visits_with_referrer",
+      "name": "Visits with a Referrer",
+      "description": "Visitors who arrived at the site from another website or source.",
+      "aliases": [
+        "Visits with a Referrer",
+        "visits with a referrer",
+        "visits-with-a-referrer",
+        "visits_with_a_referrer",
+        "visitswithareferrer"
+      ]
+    },
+    {
+      "id": "Mobile_Hits",
+      "name": "Mobile Hits",
+      "description": "The number of visits to the site from a mobile device.",
+      "aliases": [
+        "Mobile Hits",
+        "mobile hits",
+        "mobile-hits",
+        "mobile_hits",
+        "mobilehits"
+      ]
+    },
+    {
+      "id": "Non-Purchasers",
+      "name": "Non-Purchasers",
+      "description": "Identifies visitors who have never completed a purchase, using visitor-level exclusion logic to capture all users without any order events in their profile.",
+      "aliases": [
+        "Non-Purchasers",
+        "non-purchasers"
+      ]
+    },
+    {
+      "id": "Visits_with_Visitor_ID_Cookie",
+      "name": "Visits with Visitor ID Cookie",
+      "description": "Visitors who accessed the site and can be identified by a unique visitor ID cookie.",
+      "aliases": [
+        "Visits with Visitor ID Cookie",
+        "visits with visitor id cookie",
+        "visits-with-visitor-id-cookie",
+        "visits_with_visitor_id_cookie",
+        "visitswithvisitoridcookie"
+      ]
+    },
+    {
+      "id": "Viewed_Product_didn't_Add_to_Cart",
+      "name": "Viewed Product didn't Add to Cart",
+      "description": "Visitors who viewed a product without adding it to their cart.",
+      "aliases": [
+        "Viewed Product didn't Add to Cart",
+        "viewed product didn't add to cart",
+        "viewed-product-didn't-add-to-cart",
+        "viewed_product_didn't_add_to_cart",
+        "viewedproductdidn'taddtocart"
+      ]
+    },
+    {
+      "id": "Visits_from_Phones",
+      "name": "Visits from Phones",
+      "description": "Visitors who accessed the site from a mobile phone rather than another type of mobile device.",
+      "aliases": [
+        "Visits from Phones",
+        "visits from phones",
+        "visits-from-phones",
+        "visits_from_phones",
+        "visitsfromphones"
+      ]
+    },
+    {
+      "id": "video_media_content_type_vod",
+      "name": "Media Content Type: VoD",
+      "description": "Visitors who interacted specifically with Video on Demand (VoD) content while visiting the site.",
+      "aliases": [
+        "Media Content Type: VoD",
+        "media content type: vod",
+        "media-content-type:-vod",
+        "media_content_type:_vod",
+        "mediacontenttype:vod"
+      ]
+    },
+    {
+      "id": "video_media_content_type_audiobook",
+      "name": "Media Content Type: Audiobook",
+      "description": "Visitors who interacted specifically with audiobook content while visiting the site.",
+      "aliases": [
+        "Media Content Type: Audiobook",
+        "media content type: audiobook",
+        "media-content-type:-audiobook",
+        "media_content_type:_audiobook",
+        "mediacontenttype:audiobook"
+      ]
+    },
+    {
+      "id": "video_media_stream_type_audio",
+      "name": "Media Stream Type: Audio",
+      "description": "Visitors who interacted specifically with audio content while visiting the site.",
+      "aliases": [
+        "Media Stream Type: Audio",
+        "media stream type: audio",
+        "media-stream-type:-audio",
+        "media_stream_type:_audio",
+        "mediastreamtype:audio"
+      ]
+    },
+    {
+      "id": "Visits_from_Social_Sites",
+      "name": "Visits from Social Sites",
+      "description": "Visitors who accessed the site through a link from a social media platform.",
+      "aliases": [
+        "Visits from Social Sites",
+        "visits from social sites",
+        "visits-from-social-sites",
+        "visits_from_social_sites",
+        "visitsfromsocialsites"
+      ]
+    },
+    {
+      "id": "video_media_content_type_podcast",
+      "name": "Media Content Type: Podcast",
+      "description": "Visitors who interacted specifically with podcast content while visiting the site.",
+      "aliases": [
+        "Media Content Type: Podcast",
+        "media content type: podcast",
+        "media-content-type:-podcast",
+        "media_content_type:_podcast",
+        "mediacontenttype:podcast"
+      ]
+    },
+    {
+      "id": "video_media_stream_type_video",
+      "name": "Media Stream Type: Video",
+      "description": "Visitors who interacted specifically with video content while visiting the site.",
+      "aliases": [
+        "Media Stream Type: Video",
+        "media stream type: video",
+        "media-stream-type:-video",
+        "media_stream_type:_video",
+        "mediastreamtype:video"
+      ]
+    },
+    {
+      "id": "Has_An_Action",
+      "name": "Has an Action",
+      "description": "Visitors who have completed a certain action on the site, such as making a purchase or completing a form.",
+      "aliases": [
+        "Has an Action",
+        "has an action",
+        "has-an-action",
+        "has_an_action",
+        "hasanaction"
+      ]
+    },
+    {
+      "id": "Mobile_App_Hits",
+      "name": "Mobile App Hits",
+      "description": "The number of visits to the mobile app from the mobile device.",
+      "aliases": [
+        "Mobile App Hits",
+        "mobile app hits",
+        "mobile-app-hits",
+        "mobile_app_hits",
+        "mobileapphits"
+      ]
+    },
+    {
+      "id": "Abandon_Cart",
+      "name": "Abandon Cart",
+      "description": "Visitors who added items to their cart but didn't complete the purchase.",
+      "aliases": [
+        "Abandon Cart",
+        "abandon cart",
+        "abandon-cart",
+        "abandon_cart",
+        "abandoncart"
+      ]
+    },
+    {
+      "id": "Does_Not_Have_Mobile_Crash",
+      "name": "People who have not had a Crash",
+      "description": "Visitors who used a mobile device to access the site and who did not experience a crash while visiting the site.",
+      "aliases": [
+        "People who have not had a Crash",
+        "people who have not had a crash",
+        "people-who-have-not-had-a-crash",
+        "people_who_have_not_had_a_crash",
+        "peoplewhohavenothadacrash"
+      ]
+    },
+    {
+      "id": "itp_2_1_visitors_non_cname_implementations",
+      "name": "ITP Visitors (ITP 2.1, Non-CNAME implementations)",
+      "description": "Visitors with browsers that are affected by ITP 2.1. Specifically, starting with any browsers on iOS 12.2 as well Safari 12.1. ITP 2.1 applied to implementations where Adobe cookies were set as first-party using JavaScript. This did not impact implementations using a CNAME to set server-side first party cookies. CNAME implementations were impacted in November 2020 when ITP was extended to CNAME implementations.",
+      "aliases": [
+        "ITP Visitors (ITP 2.1, Non-CNAME implementations)",
+        "itp visitors (itp 2.1, non-cname implementations)",
+        "itp-visitors-(itp-2.1,-non-cname-implementations)",
+        "itp_visitors_(itp_2.1,_non-cname_implementations)",
+        "itpvisitors(itp2.1,non-cnameimplementations)"
+      ]
+    },
+    {
+      "id": "Paid_Search",
+      "name": "Paid Search",
+      "description": "Visitors who accessed the site through a paid search link.",
+      "aliases": [
+        "Paid Search",
+        "paid search",
+        "paid-search",
+        "paid_search",
+        "paidsearch"
+      ]
+    },
+    {
+      "id": "video_media_content_type_linear",
+      "name": "Media Content Type: Linear",
+      "description": "Visitors who interacted specifically with linear media content while visiting the site, such as live streaming or broadcast TV.",
+      "aliases": [
+        "Media Content Type: Linear",
+        "media content type: linear",
+        "media-content-type:-linear",
+        "media_content_type:_linear",
+        "mediacontenttype:linear"
+      ]
+    },
+    {
+      "id": "video_media_stream_type_all",
+      "name": "Media Stream Type: All",
+      "description": "Visitors who interacted specifically with any type of media content while visiting the site.",
+      "aliases": [
+        "Media Stream Type: All",
+        "media stream type: all",
+        "media-stream-type:-all",
+        "media_stream_type:_all",
+        "mediastreamtype:all"
+      ]
+    },
+    {
+      "id": "Visits_from_Campaign",
+      "name": "Visits from Campaign",
+      "description": "Visitors who accessed the site through a specific marketing campaign.",
+      "aliases": [
+        "Visits from Campaign",
+        "visits from campaign",
+        "visits-from-campaign",
+        "visits_from_campaign",
+        "visitsfromcampaign"
+      ]
+    },
+    {
+      "id": "6_to_10_days_since_last_visit",
+      "name": "6-10 Days",
+      "description": "Visitors to the site whose last visit was between 6 and 10 days ago.",
+      "aliases": [
+        "6-10 Days",
+        "6-10 days",
+        "6-10-days",
+        "6-10_days",
+        "6-10days"
+      ]
+    },
+    {
+      "id": "Return_Visits",
+      "name": "Return Visits",
+      "description": "Visitors who visited the site more than 1 time.",
+      "aliases": [
+        "Return Visits",
+        "return visits",
+        "return-visits",
+        "return_visits",
+        "returnvisits"
+      ]
+    },
+    {
+      "id": "android_activity",
+      "name": "Android",
+      "description": "Visitors who accessed the site from Android devices, such as Android phones and tablets.",
+      "aliases": [
+        "Android",
+        "android"
+      ]
+    },
+    {
+      "id": "itp_visitors_nov_2020_update_for_cname",
+      "name": "ITP Visitors (Nov 2020 Update for CNAME)",
+      "description": "If you are setting first-party cookies using a CNAME implementation, this segment will capture which users are on affected browsers. Specifically Safari on Big Sur or all browsers on iOS 14.2+. NOTE: Currently (May 2020) for all major browsers the user agent string incorrectly represents Mac OS 11.x as Mac OS 10.x. This makes it impossible to determine if user is using Mac OS 11 and thus subject to the change in ITP to apply to CNAME implementations. This segment will be affected by this inaccuracy. At this point it is unclear when or if this will be corrected. In November of 2020, ITP policy was updated to apply to implementations where cookies were set via a CNAME.",
+      "aliases": [
+        "ITP Visitors (Nov 2020 Update for CNAME)",
+        "itp visitors (nov 2020 update for cname)",
+        "itp-visitors-(nov-2020-update-for-cname)",
+        "itp_visitors_(nov_2020_update_for_cname)",
+        "itpvisitors(nov2020updateforcname)"
+      ]
+    },
+    {
+      "id": "non_itp_visitors_nov_2020_update_for_cname",
+      "name": "Non-ITP Visitors (Nov 2020 Update for CNAME)",
+      "description": "If you are setting first-party cookies using a CNAME implementation, this segment will filter out non-ITP Visitors. Giving a clear view of metrics like \"Unique Visitors\". In November of 2020, ITP policy was updated to apply to implementations where cookies were set via a CNAME.",
+      "aliases": [
+        "Non-ITP Visitors (Nov 2020 Update for CNAME)",
+        "non-itp visitors (nov 2020 update for cname)",
+        "non-itp-visitors-(nov-2020-update-for-cname)",
+        "non-itp_visitors_(nov_2020_update_for_cname)",
+        "non-itpvisitors(nov2020updateforcname)"
+      ]
+    },
+    {
+      "id": "video_media_content_type_live",
+      "name": "Media Content Type: Live",
+      "description": "Visitors who interacted specifically with live content while visiting the site.",
+      "aliases": [
+        "Media Content Type: Live",
+        "media content type: live",
+        "media-content-type:-live",
+        "media_content_type:_live",
+        "mediacontenttype:live"
+      ]
+    },
+    {
+      "id": "non_itp_visitors_non_cname_implementations",
+      "name": "Non-ITP Visitors (ITP 2.1, Non-CNAME implementations)",
+      "description": "Visitors with browsers that are affected by ITP 2.1. Specifically starting with any browsers on iOS 12.2 as well Safari 12.1. ITP 2.1 applied to implementations where Adobe cookies were set as first-party using JavaScript. This did not impact implementations using a CNAME to set server-side first party cookies. CNAME implementations were impacted in November 2020 when ITP was extended to CNAME implementations.",
+      "aliases": [
+        "Non-ITP Visitors (ITP 2.1, Non-CNAME implementations)",
+        "non-itp visitors (itp 2.1, non-cname implementations)",
+        "non-itp-visitors-(itp-2.1,-non-cname-implementations)",
+        "non-itp_visitors_(itp_2.1,_non-cname_implementations)",
+        "non-itpvisitors(itp2.1,non-cnameimplementations)"
+      ]
+    },
+    {
+      "id": "Web_Hits",
+      "name": "Web Hits",
+      "description": "The number of visits to the site from a device that is not a mobile device.",
+      "aliases": [
+        "Web Hits",
+        "web hits",
+        "web-hits",
+        "web_hits",
+        "webhits"
+      ]
+    },
+    {
+      "id": "Visits_from_Tablets",
+      "name": "Visits from Tablets",
+      "description": "Visitors who accessed the site from a tablet rather than another type of mobile device.",
+      "aliases": [
+        "Visits from Tablets",
+        "visits from tablets",
+        "visits-from-tablets",
+        "visits_from_tablets",
+        "visitsfromtablets"
+      ]
+    },
+    {
+      "id": "people_who_had_a_crash",
+      "name": "People who have had a Crash",
+      "description": "Visitors to the site who experienced a website crash while visiting the site.",
+      "aliases": [
+        "People who have had a Crash",
+        "people who have had a crash",
+        "people-who-have-had-a-crash",
+        "people_who_have_had_a_crash",
+        "peoplewhohavehadacrash"
+      ]
+    },
+    {
+      "id": "Visits_With_Tracking_Code",
+      "name": "Visits with a Tracking Code",
+      "description": "The number of visitors who arrived at the site through a specific tracking code or parameter.",
+      "aliases": [
+        "Visits with a Tracking Code",
+        "visits with a tracking code",
+        "visits-with-a-tracking-code",
+        "visits_with_a_tracking_code",
+        "visitswithatrackingcode"
+      ]
+    },
+    {
+      "id": "video_media_content_type_aod",
+      "name": "Media Content Type: AoD",
+      "description": "Visitors who interacted specifically with Advertising on Demand (AoD) content while visiting the site.",
+      "aliases": [
+        "Media Content Type: AoD",
+        "media content type: aod",
+        "media-content-type:-aod",
+        "media_content_type:_aod",
+        "mediacontenttype:aod"
+      ]
+    }
+  ]
+}

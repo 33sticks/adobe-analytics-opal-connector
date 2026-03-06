@@ -1,5 +1,7 @@
 """Segment insights tool — breaks down traffic by audience segment."""
 
+import logging
+
 from fastapi import APIRouter, Depends
 
 from app.analytics.client import AdobeAnalyticsError, get_analytics_client
@@ -9,15 +11,18 @@ from app.analytics.query_builder import (
     resolve_metric,
 )
 from app.analytics.response_parser import (
-    DIMENSION_DISPLAY,
-    METRIC_DISPLAY,
+    get_dimension_display,
+    get_metric_display,
     parse_report_response,
 )
+from app.metadata.registry import get_registry
+from app.utils.clarification import build_segment_clarification
 from app.auth.opal_auth import verify_opal_token
 from app.config import get_settings
 from app.tools import extract_parameters
 from app.utils.date_parser import format_date_range_display, parse_date_range
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/tools", tags=["tools"])
 
 SEGMENT_MAP = {
@@ -75,8 +80,29 @@ async def segment_insights(body: dict) -> dict:
                 "data": {},
             }
 
-        unknown = [s for s in segments if s not in SEGMENT_MAP]
+        # Resolve segments through registry first, legacy fallback
+        registry = get_registry()
+        resolved_segments: list[tuple[str, str]] = []  # (display_key, segment_id)
+        unknown: list[str] = []
+
+        for s in segments:
+            if registry.is_loaded:
+                result = registry.resolve_segment(s)
+                if result.status in ("exact", "fuzzy") and result.match:
+                    resolved_segments.append((s, result.match))
+                    continue
+            # Legacy fallback
+            if s in SEGMENT_MAP:
+                resolved_segments.append((s, SEGMENT_MAP[s]))
+            else:
+                unknown.append(s)
+
         if unknown:
+            # Try to provide fuzzy suggestions from registry
+            if registry.is_loaded and len(unknown) == 1:
+                result = registry.resolve_segment(unknown[0])
+                if result.suggestions:
+                    return build_segment_clarification(unknown[0], result.suggestions, ambiguous=False)
             available = ", ".join(f"'{k}'" for k in sorted(SEGMENT_MAP.keys()))
             return {
                 "status": "error",
@@ -90,18 +116,15 @@ async def segment_insights(body: dict) -> dict:
 
         resolved_metric = resolve_metric(params["metric"])
         resolved_dimension = resolve_dimension(dimension)
-        metric_display = METRIC_DISPLAY.get(resolved_metric, resolved_metric)
-        dimension_label = DIMENSION_DISPLAY.get(
-            resolved_dimension, resolved_dimension
-        )
+        metric_display = get_metric_display(resolved_metric)
+        dimension_label = get_dimension_display(resolved_dimension)
 
         settings = get_settings()
         client = get_analytics_client()
 
         segment_results: list[tuple[str, object]] = []
 
-        for segment_key in segments:
-            segment_id = SEGMENT_MAP[segment_key]
+        for segment_key, segment_id in resolved_segments:
             request_body = build_ranked_report(
                 rsid=settings.adobe_report_suite_id,
                 dimension=resolved_dimension,
@@ -168,6 +191,7 @@ async def segment_insights(body: dict) -> dict:
             "data": {},
         }
     except Exception:
+        logger.exception("Unhandled error in segment_insights")
         return {
             "status": "error",
             "message": "An unexpected error occurred. Please try again.",

@@ -222,6 +222,124 @@ class AdobeAnalyticsClient:
         )
 
 
+    async def _get_paginated(
+        self,
+        url: str,
+        params: dict[str, Any],
+    ) -> list[dict[str, Any]]:
+        """GET a paginated Adobe API endpoint, handling auth retry, rate limits, and pagination."""
+        all_items: list[dict[str, Any]] = []
+        page = 0
+
+        while True:
+            params["page"] = page
+            headers = await self._build_headers()
+            start = time.perf_counter()
+            response = await self._client.get(url, params=params, headers=headers)
+            duration_ms = (time.perf_counter() - start) * 1000
+
+            if response.status_code == 401:
+                logger.warning("Adobe token rejected (401), refreshing and retrying once")
+                self.auth_manager.invalidate_token()
+                headers = await self._build_headers()
+                response = await self._client.get(url, params=params, headers=headers)
+                if response.status_code != 200:
+                    raise AdobeAnalyticsError(
+                        f"Adobe Analytics authentication failed after token refresh: HTTP {response.status_code}"
+                    )
+
+            if response.status_code == 429:
+                for attempt, delay in enumerate(RATE_LIMIT_BACKOFF):
+                    logger.warning(
+                        "Adobe rate limited (429), backing off",
+                        extra={"attempt": attempt + 1, "delay_s": delay},
+                    )
+                    await asyncio.sleep(delay)
+                    headers = await self._build_headers()
+                    response = await self._client.get(url, params=params, headers=headers)
+                    if response.status_code == 200:
+                        break
+                else:
+                    raise AdobeAnalyticsError(
+                        "Adobe Analytics rate limit exceeded. Please try again later."
+                    )
+
+            if response.status_code == 403:
+                raise AdobeAnalyticsError(
+                    "Adobe Analytics permission denied. Check API access and report suite permissions."
+                )
+
+            if response.status_code >= 500:
+                raise AdobeAnalyticsError(
+                    f"Adobe Analytics service error (HTTP {response.status_code}). Please try again later."
+                )
+
+            if response.status_code != 200:
+                raise AdobeAnalyticsError(
+                    f"Adobe Analytics request failed: HTTP {response.status_code}"
+                )
+
+            data = response.json()
+            logger.info(
+                "Adobe API page fetched",
+                extra={"duration_ms": round(duration_ms, 2), "url": url, "page": page},
+            )
+
+            if isinstance(data, list):
+                all_items.extend(data)
+                break
+            if isinstance(data, dict) and "content" in data:
+                items = data["content"]
+                if isinstance(items, list):
+                    all_items.extend(items)
+                if data.get("lastPage", True):
+                    break
+                page += 1
+            else:
+                break
+
+        return all_items
+
+    async def get_dimensions(
+        self,
+        rsid: Optional[str] = None,
+        *,
+        limit: int = 100,
+    ) -> list[dict[str, Any]]:
+        """GET available dimensions from Adobe Analytics for a report suite."""
+        company_id = self.settings.adobe_company_id
+        report_suite = rsid or self.settings.adobe_report_suite_id
+        url = f"/api/{company_id}/dimensions"
+        params: dict[str, Any] = {"rsid": report_suite, "limit": limit}
+        return await self._get_paginated(url, params)
+
+    async def get_metrics(
+        self,
+        rsid: Optional[str] = None,
+        *,
+        limit: int = 100,
+    ) -> list[dict[str, Any]]:
+        """GET available metrics from Adobe Analytics for a report suite."""
+        company_id = self.settings.adobe_company_id
+        report_suite = rsid or self.settings.adobe_report_suite_id
+        url = f"/api/{company_id}/metrics"
+        params: dict[str, Any] = {"rsid": report_suite, "limit": limit}
+        return await self._get_paginated(url, params)
+
+    async def get_calculated_metrics(
+        self,
+        rsid: Optional[str] = None,
+        *,
+        limit: int = 100,
+    ) -> list[dict[str, Any]]:
+        """GET available calculated metrics from Adobe Analytics."""
+        company_id = self.settings.adobe_company_id
+        report_suite = rsid or self.settings.adobe_report_suite_id
+        url = f"/api/{company_id}/calculatedmetrics"
+        params: dict[str, Any] = {"rsid": report_suite, "limit": limit}
+        return await self._get_paginated(url, params)
+
+
 _client: Optional[AdobeAnalyticsClient] = None
 
 

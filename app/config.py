@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     adobe_company_id: str = "exchane5"
     adobe_report_suite_id: str = "33sticksjennwebprops"
     opal_bearer_token: str
+    metadata_schema_path: str = "app/metadata/schema.json"
     port: int = 8000
     base_url: str = "http://localhost:8000"
     environment: str = "development"

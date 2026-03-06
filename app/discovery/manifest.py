@@ -1,5 +1,32 @@
 """Opal tool manifest for Adobe Analytics connector."""
 
+import logging
+
+from app.metadata.registry import get_registry
+
+logger = logging.getLogger(__name__)
+
+
+def _build_dynamic_description() -> dict:
+    """Build dynamic descriptions with actual available names from the registry."""
+    registry = get_registry()
+    if not registry.is_loaded:
+        return {"dimensions": "", "metrics": "", "segments": ""}
+
+    dims = registry.list_dimensions()[:20]
+    mets = registry.list_metrics()[:15]
+    segs = registry.list_segments()[:15]
+
+    dim_names = ", ".join(d["name"] for d in dims)
+    met_names = ", ".join(m["name"] for m in mets)
+    seg_names = ", ".join(s["name"] for s in segs)
+
+    return {
+        "dimensions": dim_names,
+        "metrics": met_names,
+        "segments": seg_names,
+    }
+
 
 def get_manifest() -> dict:
     """Return the full tool manifest for Opal discovery.
@@ -10,8 +37,46 @@ def get_manifest() -> dict:
     Returns:
         Manifest dict with functions array.
     """
+    avail = _build_dynamic_description()
+
+    # Build dynamic descriptions for new tools
+    query_desc = (
+        "Runs a flexible Adobe Analytics query with any dimension, metric(s), segment, "
+        "date range, and filter. Use this as the primary tool for any analytics question "
+        "that doesn't fit the specialized tools. Supports fuzzy matching of names."
+    )
+    if avail["dimensions"]:
+        query_desc += f" Available dimensions include: {avail['dimensions']}."
+    if avail["metrics"]:
+        query_desc += f" Available metrics include: {avail['metrics']}."
+    if avail["segments"]:
+        query_desc += f" Available segments include: {avail['segments']}."
+
+    trend_desc = (
+        "Returns a time-series trend for any Adobe Analytics metric, broken down by day, "
+        "week, or month. Use this when users ask about trends over time, daily/weekly/monthly "
+        "patterns, or time-series analysis."
+    )
+    if avail["metrics"]:
+        trend_desc += f" Available metrics include: {avail['metrics']}."
+
+    compare_desc = (
+        "Compares any Adobe Analytics dimension/metric across two time periods. "
+        "Use this for period-over-period analysis, performance changes, or before/after comparisons. "
+        "Automatically calculates the prior period if not specified."
+    )
+    if avail["dimensions"]:
+        compare_desc += f" Available dimensions include: {avail['dimensions']}."
+
+    schema_desc = (
+        "Lists all available Adobe Analytics dimensions, metrics, and segments. "
+        "Use this when users ask 'what can I query?', 'what dimensions are available?', "
+        "or need to discover what data is accessible. Supports filtering by category and search."
+    )
+
     return {
         "functions": [
+            # --- Existing specialized tools (backward compatible) ---
             {
                 "name": "adobe_analytics_traffic",
                 "description": "Retrieves page-level traffic data from Adobe Analytics. Use this when users ask about page views, top pages, traffic trends, or website performance over a time period. Available metrics: pageviews, occurrences. Can filter by page name and limit results to top N pages.",
@@ -168,6 +233,163 @@ def get_manifest() -> dict:
                     },
                 ],
                 "endpoint": "/tools/validation",
+                "http_method": "POST",
+                "auth_requirements": [],
+            },
+            # --- New general-purpose tools ---
+            {
+                "name": "adobe_analytics_query",
+                "description": query_desc,
+                "parameters": [
+                    {
+                        "name": "dimension",
+                        "type": "string",
+                        "description": "The dimension to break down by (e.g. 'page', 'browser', 'country', 'entry page'). Supports fuzzy matching. Default: 'page'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "metrics",
+                        "type": "string",
+                        "description": "Comma-separated metrics to retrieve (e.g. 'pageviews', 'visits, visitors'). Supports fuzzy matching. Default: 'pageviews'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "segment",
+                        "type": "string",
+                        "description": "Optional segment to apply (e.g. 'mobile', 'new visitors'). Supports fuzzy matching.",
+                        "required": False,
+                    },
+                    {
+                        "name": "date_range",
+                        "type": "string",
+                        "description": "Time period in natural language. Default: 'last 7 days'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "filter",
+                        "type": "string",
+                        "description": "Optional filter for dimension values (CONTAINS match).",
+                        "required": False,
+                    },
+                    {
+                        "name": "top_n",
+                        "type": "integer",
+                        "description": "Number of results to return. Default: 10. Max: 50.",
+                        "required": False,
+                    },
+                ],
+                "endpoint": "/tools/query",
+                "http_method": "POST",
+                "auth_requirements": [],
+            },
+            {
+                "name": "adobe_analytics_trend",
+                "description": trend_desc,
+                "parameters": [
+                    {
+                        "name": "metric",
+                        "type": "string",
+                        "description": "The metric to trend (e.g. 'pageviews', 'visits', 'bounce rate'). Supports fuzzy matching. Default: 'pageviews'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "date_range",
+                        "type": "string",
+                        "description": "Time period in natural language. Default: 'last 30 days'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "granularity",
+                        "type": "string",
+                        "description": "Time granularity: 'day', 'week', or 'month'. Default: 'day'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "segment",
+                        "type": "string",
+                        "description": "Optional segment to apply. Supports fuzzy matching.",
+                        "required": False,
+                    },
+                    {
+                        "name": "filter",
+                        "type": "string",
+                        "description": "Optional filter for dimension values.",
+                        "required": False,
+                    },
+                ],
+                "endpoint": "/tools/query/trend",
+                "http_method": "POST",
+                "auth_requirements": [],
+            },
+            {
+                "name": "adobe_analytics_compare",
+                "description": compare_desc,
+                "parameters": [
+                    {
+                        "name": "dimension",
+                        "type": "string",
+                        "description": "Dimension to compare (e.g. 'page', 'browser'). Default: 'page'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "metric",
+                        "type": "string",
+                        "description": "Metric to compare. Default: 'pageviews'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "current_period",
+                        "type": "string",
+                        "description": "Current time period in natural language. Default: 'last 7 days'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "prior_period",
+                        "type": "string",
+                        "description": "Prior time period. Auto-calculated if not specified.",
+                        "required": False,
+                    },
+                    {
+                        "name": "segment",
+                        "type": "string",
+                        "description": "Optional segment to apply.",
+                        "required": False,
+                    },
+                    {
+                        "name": "filter",
+                        "type": "string",
+                        "description": "Optional filter for dimension values.",
+                        "required": False,
+                    },
+                    {
+                        "name": "top_n",
+                        "type": "integer",
+                        "description": "Number of results to compare. Default: 10.",
+                        "required": False,
+                    },
+                ],
+                "endpoint": "/tools/query/compare",
+                "http_method": "POST",
+                "auth_requirements": [],
+            },
+            {
+                "name": "adobe_analytics_schema",
+                "description": schema_desc,
+                "parameters": [
+                    {
+                        "name": "category",
+                        "type": "string",
+                        "description": "Filter by category: 'dimensions', 'metrics', 'segments', or 'all'. Default: 'all'.",
+                        "required": False,
+                    },
+                    {
+                        "name": "search",
+                        "type": "string",
+                        "description": "Optional search string to filter results by name.",
+                        "required": False,
+                    },
+                ],
+                "endpoint": "/tools/schema",
                 "http_method": "POST",
                 "auth_requirements": [],
             },

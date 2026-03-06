@@ -1,15 +1,17 @@
 """Page comparison tool — compares page performance across two time periods."""
 
+import logging
 from datetime import timedelta
 
 from fastapi import APIRouter, Depends
 
 from app.analytics.client import AdobeAnalyticsError, get_analytics_client
 from app.analytics.query_builder import build_ranked_report, resolve_metric
-from app.analytics.response_parser import METRIC_DISPLAY, parse_report_response
+from app.analytics.response_parser import get_metric_display, parse_report_response
 from app.auth.opal_auth import verify_opal_token
 from app.config import get_settings
-from app.tools import extract_parameters
+from app.metadata.registry import get_registry
+from app.utils.clarification import build_metric_clarification
 from app.utils.date_parser import (
     format_adobe_date_range,
     format_date_bounds_display,
@@ -18,16 +20,17 @@ from app.utils.date_parser import (
     parse_date_range,
 )
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/tools", tags=["tools"])
 
 
-def calculate_prior_period(current_period: str) -> str:
-    """Compute prior period by shifting current_period back by same duration."""
+def _auto_prior_period(current_period: str) -> tuple[str, str]:
+    """Compute prior period range and display string by shifting back by same duration."""
     start, end = get_date_bounds(current_period)
     duration = (end - start).days + 1
     prior_end = start - timedelta(days=1)
     prior_start = prior_end - timedelta(days=duration - 1)
-    return format_adobe_date_range(prior_start, prior_end)
+    return format_adobe_date_range(prior_start, prior_end), format_date_bounds_display(prior_start, prior_end)
 
 
 def _format_change(current: float, prior: float) -> str:
@@ -43,7 +46,6 @@ def _format_change(current: float, prior: float) -> str:
 async def page_comparison(body: dict) -> dict:
     """Compare page performance across current and prior time periods."""
     try:
-        params = extract_parameters(body)
         source = body.get("parameters") if isinstance(body.get("parameters"), dict) else body
         source = source or {}
 
@@ -56,15 +58,10 @@ async def page_comparison(body: dict) -> dict:
                 "data": {},
             }
 
-        current_period = source.get("current_period") or params["date_range"]
+        current_period = source.get("current_period") or source.get("date_range", "last 7 days")
         prior_period = source.get("prior_period")
         if prior_period is None or (isinstance(prior_period, str) and not prior_period.strip()):
-            adobe_prior_range = calculate_prior_period(current_period)
-            start, end = get_date_bounds(current_period)
-            duration = (end - start).days + 1
-            prior_end = start - timedelta(days=1)
-            prior_start = prior_end - timedelta(days=duration - 1)
-            prior_display = format_date_bounds_display(prior_start, prior_end)
+            adobe_prior_range, prior_display = _auto_prior_period(current_period)
         else:
             prior_period = prior_period.strip() if isinstance(prior_period, str) else str(prior_period)
             adobe_prior_range = parse_date_range(prior_period)
@@ -75,15 +72,10 @@ async def page_comparison(body: dict) -> dict:
 
         # Safety: if prior resolved to same range as current, fall back to auto-calculation
         if adobe_current_range == adobe_prior_range:
-            adobe_prior_range = calculate_prior_period(current_period)
-            start, end = get_date_bounds(current_period)
-            duration = (end - start).days + 1
-            prior_end = start - timedelta(days=1)
-            prior_start = prior_end - timedelta(days=duration - 1)
-            prior_display = format_date_bounds_display(prior_start, prior_end)
+            adobe_prior_range, prior_display = _auto_prior_period(current_period)
 
-        resolved_metric = resolve_metric(params["metric"])
-        metric_display = METRIC_DISPLAY.get(resolved_metric, resolved_metric)
+        resolved_metric = resolve_metric(source.get("metric", "pageviews"))
+        metric_display = get_metric_display(resolved_metric)
 
         settings = get_settings()
         client = get_analytics_client()
@@ -173,6 +165,12 @@ async def page_comparison(body: dict) -> dict:
         }
 
     except ValueError as e:
+        registry = get_registry()
+        if registry.is_loaded and "metric" in str(e).lower():
+            metric_input = source.get("metric", "pageviews") if source else "pageviews"
+            result = registry.resolve_metric(metric_input)
+            if result.suggestions:
+                return build_metric_clarification(metric_input, result.suggestions, ambiguous=False)
         return {
             "status": "error",
             "message": f"Invalid parameter: {e}. Use 'pageviews' or 'occurrences' for metric.",
@@ -185,6 +183,7 @@ async def page_comparison(body: dict) -> dict:
             "data": {},
         }
     except Exception:
+        logger.exception("Unhandled error in page_comparison")
         return {
             "status": "error",
             "message": "An unexpected error occurred. Please try again.",

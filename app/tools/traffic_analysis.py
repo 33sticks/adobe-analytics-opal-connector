@@ -1,15 +1,20 @@
 """Traffic analysis tool — top pages by metric."""
 
+import logging
+
 from fastapi import APIRouter, Depends
 
 from app.analytics.client import AdobeAnalyticsError, get_analytics_client
 from app.analytics.query_builder import build_ranked_report, resolve_metric
-from app.analytics.response_parser import METRIC_DISPLAY, parse_report_response
+from app.analytics.response_parser import get_metric_display, parse_report_response
 from app.auth.opal_auth import verify_opal_token
 from app.config import get_settings
+from app.metadata.registry import get_registry
 from app.tools import extract_parameters
+from app.utils.clarification import build_metric_clarification
 from app.utils.date_parser import format_date_range_display, parse_date_range
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/tools", tags=["tools"])
 
 
@@ -26,7 +31,7 @@ async def traffic_analysis(body: dict) -> dict:
         date_range_display = format_date_range_display(date_range_str)
 
         resolved_metric = resolve_metric(params["metric"])
-        metric_display = METRIC_DISPLAY.get(resolved_metric, resolved_metric)
+        metric_display = get_metric_display(resolved_metric)
 
         settings = get_settings()
         request_body = build_ranked_report(
@@ -77,6 +82,12 @@ async def traffic_analysis(body: dict) -> dict:
         }
 
     except ValueError as e:
+        # Try to provide suggestions from registry
+        registry = get_registry()
+        if registry.is_loaded and "metric" in str(e).lower():
+            result = registry.resolve_metric(params.get("metric", ""))
+            if result.suggestions:
+                return build_metric_clarification(params.get("metric", ""), result.suggestions, ambiguous=False)
         return {
             "status": "error",
             "message": f"Invalid parameter: {e}. Use 'pageviews' or 'occurrences' for metric.",
@@ -89,6 +100,7 @@ async def traffic_analysis(body: dict) -> dict:
             "data": {},
         }
     except Exception:
+        logger.exception("Unhandled error in traffic_analysis")
         return {
             "status": "error",
             "message": "An unexpected error occurred. Please try again.",

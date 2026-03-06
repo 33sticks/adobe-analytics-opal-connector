@@ -1,5 +1,6 @@
 """Traffic validation tool — analyzes daily traffic patterns for experiment planning."""
 
+import logging
 from statistics import mean
 
 from fastapi import APIRouter, Depends
@@ -10,11 +11,14 @@ from app.analytics.query_builder import (
     build_trended_report_for_page,
     resolve_metric,
 )
-from app.analytics.response_parser import METRIC_DISPLAY, parse_report_response
+from app.analytics.response_parser import get_metric_display, parse_report_response
 from app.auth.opal_auth import verify_opal_token
 from app.config import get_settings
+from app.metadata.registry import get_registry
+from app.utils.clarification import build_metric_clarification
 from app.utils.date_parser import format_date_range_display, parse_date_range
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/tools", tags=["tools"])
 
 
@@ -74,7 +78,7 @@ async def traffic_validation(body: dict) -> dict:
         date_range_display = format_date_range_display(date_range_str)
 
         resolved_metric = resolve_metric(params["metric"])
-        metric_display = METRIC_DISPLAY.get(resolved_metric, resolved_metric)
+        metric_display = get_metric_display(resolved_metric)
 
         settings = get_settings()
         client = get_analytics_client()
@@ -186,6 +190,11 @@ async def traffic_validation(body: dict) -> dict:
         }
 
     except ValueError as e:
+        registry = get_registry()
+        if registry.is_loaded and "metric" in str(e).lower():
+            result = registry.resolve_metric(params.get("metric", ""))
+            if result.suggestions:
+                return build_metric_clarification(params.get("metric", ""), result.suggestions, ambiguous=False)
         return {
             "status": "error",
             "message": f"Invalid parameter: {e}. Use 'pageviews' or 'occurrences' for metric.",
@@ -198,6 +207,7 @@ async def traffic_validation(body: dict) -> dict:
             "data": {},
         }
     except Exception:
+        logger.exception("Unhandled error in traffic_validation")
         return {
             "status": "error",
             "message": "An unexpected error occurred. Please try again.",

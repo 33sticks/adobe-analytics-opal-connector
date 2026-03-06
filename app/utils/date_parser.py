@@ -225,6 +225,47 @@ def format_date_bounds_display(start: date, end: date) -> str:
     return _format_bounds_display(start, end)
 
 
+def _is_recognized_date_input(s: str) -> bool:
+    """Return True if the input matches a known date pattern."""
+    if not s:
+        return False
+    # last N days
+    if re.match(r"last\s+(\d+)\s+days?$", s):
+        n = int(re.match(r"last\s+(\d+)\s+days?$", s).group(1))
+        return n >= 1
+    # Named periods
+    if s in ("last week", "prior week", "previous week", "this week",
+             "last month", "prior month", "previous month", "this month",
+             "yesterday", "today", "prior period", "previous period"):
+        return True
+    # Quarter
+    if re.match(r"q[1-4]\s+\d{4}$", s):
+        return True
+    # Month name + year
+    m = re.match(r"(\w+)\s+(\d{4})$", s)
+    if m and m.group(1).lower() in _MONTH_NAMES:
+        return True
+    return False
+
+
+def parse_date_range_with_feedback(date_range: str) -> tuple:
+    """
+    Parse date range and return (adobe_date_range, feedback_or_none).
+
+    If the input was unrecognized and fell back to defaults, feedback is a string
+    explaining what happened. Otherwise feedback is None.
+    """
+    s = date_range.strip().lower()
+    start, end = _parse_to_dates(date_range)
+    adobe_range = format_adobe_date_range(start, end)
+
+    if s and not _is_recognized_date_input(s):
+        display = _format_bounds_display(start, end)
+        return adobe_range, f"Could not parse '{date_range}'. Using default: {display}."
+
+    return adobe_range, None
+
+
 def format_date_range_display(date_range: str) -> str:
     """
     Convert natural language date range to human-readable display string.

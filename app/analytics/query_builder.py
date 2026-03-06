@@ -2,10 +2,17 @@
 Builds Adobe Analytics 2.0 API request bodies from tool parameters.
 
 Pure functions only — no side effects.
+Uses MetadataRegistry for dynamic resolution with legacy fallback.
 """
 
+import logging
 from typing import Optional
 
+from app.metadata.registry import get_registry
+
+logger = logging.getLogger(__name__)
+
+# Legacy maps — kept for backward compatibility when registry has no match
 DIMENSION_MAP = {
     "page": "variables/page",
     "referrer_type": "variables/referrertype",
@@ -25,6 +32,8 @@ def resolve_dimension(name: str) -> str:
     """
     Resolve a dimension name to its Adobe Analytics API ID.
 
+    Tries registry first, falls back to legacy DIMENSION_MAP.
+
     Args:
         name: Human-friendly name (e.g. "page", "referrer_type") or
               Adobe format (e.g. "variables/page").
@@ -38,6 +47,15 @@ def resolve_dimension(name: str) -> str:
     normalized = name.strip().lower()
     if name.startswith("variables/"):
         return name
+
+    # Try registry first
+    registry = get_registry()
+    if registry.is_loaded:
+        result = registry.resolve_dimension(name)
+        if result.status in ("exact", "fuzzy") and result.match:
+            return result.match
+
+    # Legacy fallback
     if normalized in DIMENSION_MAP:
         return DIMENSION_MAP[normalized]
     raise ValueError(f"Unknown dimension: {name!r}")
@@ -46,6 +64,8 @@ def resolve_dimension(name: str) -> str:
 def resolve_metric(name: str) -> str:
     """
     Resolve a metric name to its Adobe Analytics API ID.
+
+    Tries registry first, falls back to legacy METRIC_MAP.
 
     Args:
         name: Human-friendly name (e.g. "pageviews", "occurrences") or
@@ -60,6 +80,15 @@ def resolve_metric(name: str) -> str:
     normalized = name.strip().lower()
     if name.startswith("metrics/"):
         return name
+
+    # Try registry first
+    registry = get_registry()
+    if registry.is_loaded:
+        result = registry.resolve_metric(name)
+        if result.status in ("exact", "fuzzy") and result.match:
+            return result.match
+
+    # Legacy fallback
     if normalized in METRIC_MAP:
         return METRIC_MAP[normalized]
     raise ValueError(f"Unknown metric: {name!r}")
